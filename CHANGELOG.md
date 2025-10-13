@@ -1,11 +1,24 @@
 # Changelog
+## v1.23.0 - 2025-10-13
+### Features
+- Remove the `full` parameter from V01
+- Update RT11 API
+- Update ST11 API
+- Add reduced unit price promotions
+
 ## v1.22.0 - 2025-04-10
 ### Features
 - Add compatibility with PHP 8.4
 
+## v1.21.3 - 2024-12-20
+### Fixes
+- Fix bad response type of API CM22
+
 ## v1.21.2 - 2024-12-16
 ### Fixes
+- Fix API CO01 cannot be used because of setId() explicit method
 - Fix missing PHPDoc in Carrier class (API SH21)
+- Add missing Seekable and Sortable traits on API RT31
 
 ## v1.21.1 - 2024-11-22
 ### Fixes

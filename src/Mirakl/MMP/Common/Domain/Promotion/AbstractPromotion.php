@@ -15,6 +15,8 @@ use Mirakl\MMP\Common\Domain\Collection\Promotion\PromotionTriggerCollection;
 /**
  * @method float                                getAmountOff()
  * @method $this                                setAmountOff(float $amountOff)
+ * @method float                                getReducedUnitPrice()
+ * @method $this                                setReducedUnitPrice(float $reducedUnitPrice)
  * @method PromotionApplicationToCartCollection getApplicationToCart()
  * @method $this                                setApplicationToCart(PromotionApplicationToCartCollection|array $applicationToCart)
  * @method PromotionCampaign                    getCampaign()
@@ -53,14 +55,15 @@ abstract class AbstractPromotion extends MiraklObject
 {
     use DateRangeTrait;
 
-    public const TYPE_PERCENTAGE_OFF = 'PERCENTAGE_OFF';
-    public const TYPE_AMOUNT_OFF     = 'AMOUNT_OFF';
-    public const TYPE_FREE_ITEMS     = 'FREE_ITEMS';
-    public const STATE_ACTIVE        = 'ACTIVE';           // The promotion is within its availability date
-    public const STATE_PENDING       = 'PENDING';          // The promotion is not yet active
-    public const STATE_EXPIRED       = 'EXPIRED';          // The promotion is not active anymore
-    public const PENDING_APPROVAL    = 'PENDING_APPROVAL'; // The promotion is waiting for approval
-    public const REJECTED            = 'REJECTED';         // The promotion has been rejected
+    public const TYPE_PERCENTAGE_OFF     = 'PERCENTAGE_OFF';
+    public const TYPE_AMOUNT_OFF         = 'AMOUNT_OFF';
+    public const TYPE_FREE_ITEMS         = 'FREE_ITEMS';
+    public const TYPE_REDUCED_UNIT_PRICE = 'REDUCED_UNIT_PRICE';
+    public const STATE_ACTIVE            = 'ACTIVE';           // The promotion is within its availability date
+    public const STATE_PENDING           = 'PENDING';          // The promotion is not yet active
+    public const STATE_EXPIRED           = 'EXPIRED';          // The promotion is not active anymore
+    public const PENDING_APPROVAL        = 'PENDING_APPROVAL'; // The promotion is waiting for approval
+    public const REJECTED                = 'REJECTED';         // The promotion has been rejected
 
     /**
      * @var array

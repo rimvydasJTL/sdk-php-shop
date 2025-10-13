@@ -9,6 +9,8 @@ use Mirakl\Core\Domain\MiraklObject;
 /**
  * @method float  getAmountOff()
  * @method $this  setAmountOff(float $amountOff)
+ * @method float  getReducedUnitPrice()
+ * @method $this  setReducedUnitPrice(float $reducedUnitPrice)
  * @method int    getFreeItemsQuantity()
  * @method $this  setFreeItemsQuantity(int $freeItemsQty)
  * @method string getInternalDescription()
@@ -20,7 +22,8 @@ use Mirakl\Core\Domain\MiraklObject;
  */
 class PromotionConfiguration extends MiraklObject
 {
-    public const TYPE_PERCENTAGE_OFF = 'PERCENTAGE_OFF';
-    public const TYPE_AMOUNT_OFF     = 'AMOUNT_OFF';
-    public const TYPE_FREE_ITEMS     = 'FREE_ITEMS';
+    public const TYPE_PERCENTAGE_OFF     = 'PERCENTAGE_OFF';
+    public const TYPE_AMOUNT_OFF         = 'AMOUNT_OFF';
+    public const TYPE_FREE_ITEMS         = 'FREE_ITEMS';
+    public const TYPE_REDUCED_UNIT_PRICE = 'REDUCED_UNIT_PRICE';
 }

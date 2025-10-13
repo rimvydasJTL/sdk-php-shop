@@ -31,6 +31,8 @@ use Mirakl\MMP\Common\Domain\Collection\Returns\MiraklReturnCollection;
  * @method $this     setReturnRmas(string[] $returnRmas)
  * @method string[]  getReturnStates()
  * @method $this     setReturnStates(string[] $returnStates)
+ * @method string[]  getCustomerIds()
+ * @method $this     setCustomerIds(string[] $customerIds)
  */
 abstract class AbstractGetReturnsRequest extends AbstractRequest
 {
@@ -51,6 +53,7 @@ abstract class AbstractGetReturnsRequest extends AbstractRequest
         'return_id',
         'return_rma',
         'return_state',
+        'customer_id',
     ];
 
     /**
@@ -66,6 +69,7 @@ abstract class AbstractGetReturnsRequest extends AbstractRequest
         'return_ids'                => 'return_id',
         'return_rmas'               => 'return_rma',
         'return_states'             => 'return_state',
+        'customer_ids'              => 'customer_id',
     ];
 
     /**

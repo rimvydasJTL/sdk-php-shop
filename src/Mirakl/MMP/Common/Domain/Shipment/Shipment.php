@@ -5,31 +5,36 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Domain\Shipment;
 
 use Mirakl\Core\Domain\MiraklObject;
+use Mirakl\MMP\Common\Domain\Collection\Shipment\ShipmentAdditionalInformationCollection;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\ShipmentLineCollection;
 
 /**
- * @method string                 getId()
- * @method $this                  setId(string $id)
- * @method string                 getInvoiceReference()
- * @method $this                  setInvoiceReference(string $invoiceReference)
- * @method string                 getOrderId()
- * @method $this                  setOrderId(string $orderId)
- * @method ShipmentLineCollection getShipmentLines()
- * @method $this                  setShipmentLines(array|ShipmentLineCollection $shipmentLines)
- * @method string                 getStatus()
- * @method $this                  setStatus(string $status)
- * @method ShipmentTracking       getTracking()
- * @method $this                  setTracking(array|ShipmentTracking $tracking)
- * @method \DateTime              getCreatedDate()
- * @method $this                  setCreatedDate(\DateTime $createdDate)
- * @method \DateTime              getLastUpdatedDate()
- * @method $this                  setLastUpdatedDate(\DateTime $lastUpdatedDate)
- * @method ShipmentPaymentDetails getPaymentDetails()
- * @method $this                  setPaymentDetails(ShipmentPaymentDetails $paymentDetails)
- * @method \DateTime              getShippedDate()
- * @method $this                  setShippedDate(\DateTime $shippedDate)
- * @method string                 getStatusCustomerDebit() One of NO_DEBIT, NOT_STARTED, WAITING_OPERATOR_SYSTEM_CONTACT, WAITING_DEBIT_CONFIRMATION, DEBIT_OK, CANCELED
- * @method $this                  setStatusCustomerDebit(string $statusCustomerDebit)
+ * @method string                                  getId()
+ * @method $this                                   setId(string $id)
+ * @method string                                  getInvoiceReference()
+ * @method $this                                   setInvoiceReference(string $invoiceReference)
+ * @method string                                  getOrderId()
+ * @method $this                                   setOrderId(string $orderId)
+ * @method ShipmentLineCollection                  getShipmentLines()
+ * @method $this                                   setShipmentLines(ShipmentLineCollection|array $shipmentLines)
+ * @method string                                  getStatus()
+ * @method $this                                   setStatus(string $status)
+ * @method ShipmentTracking                        getTracking()
+ * @method $this                                   setTracking(ShipmentTracking|array $tracking)
+ * @method \DateTime                               getCreatedDate()
+ * @method $this                                   setCreatedDate(\DateTime $createdDate)
+ * @method \DateTime                               getLastUpdatedDate()
+ * @method $this                                   setLastUpdatedDate(\DateTime $lastUpdatedDate)
+ * @method ShipmentPaymentDetails                  getPaymentDetails()
+ * @method $this                                   setPaymentDetails(ShipmentPaymentDetails|array $paymentDetails)
+ * @method ShipmentAdditionalInformationCollection getShipmentAdditionalInformation()
+ * @method $this                                   setShipmentAdditionalInformation(ShipmentAdditionalInformationCollection|array $shipmentAdditionalInformationCollection)
+ * @method \DateTime                               getShippedDate()
+ * @method $this                                   setShippedDate(\DateTime $shippedDate)
+ * @method ShippingFrom                            getShippingFrom()
+ * @method $this                                   setShippingFrom(ShippingFrom|array $shippingFrom)
+ * @method string                                  getStatusCustomerDebit() One of NO_DEBIT, NOT_STARTED, WAITING_OPERATOR_SYSTEM_CONTACT, WAITING_DEBIT_CONFIRMATION, DEBIT_OK, CANCELED
+ * @method $this                                   setStatusCustomerDebit(string $statusCustomerDebit)
  */
 class Shipment extends MiraklObject
 {
@@ -45,8 +50,10 @@ class Shipment extends MiraklObject
      * @var array
      */
     protected static $dataTypes = [
-        'shipment_lines'  => [ShipmentLineCollection::class, 'create'],
-        'tracking'        => [ShipmentTracking::class, 'create'],
-        'payment_details' => [ShipmentPaymentDetails::class, 'create'],
+        'payment_details'                 => [ShipmentPaymentDetails::class, 'create'],
+        'shipment_additional_information' => [ShipmentAdditionalInformationCollection::class, 'create'],
+        'shipping_from'                   => [ShippingFrom::class, 'create'],
+        'shipment_lines'                  => [ShipmentLineCollection::class, 'create'],
+        'tracking'                        => [ShipmentTracking::class, 'create'],
     ];
 }
