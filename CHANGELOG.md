@@ -1,4 +1,8 @@
 # Changelog
+## v1.25.1 - 2026-05-27
+### Fixes
+- Fix `TypeError` in `MiraklCollection` decorator when the API response does not contain the expected collection key
+
 ## v1.25.0 - 2026-05-07
 ### Features
 - Add retail prices, warehouses and ongoing discount campaigns to async offer export (OF52, OF54)

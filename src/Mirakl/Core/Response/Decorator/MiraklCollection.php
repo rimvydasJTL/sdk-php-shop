@@ -41,7 +41,7 @@ class MiraklCollection implements ResponseDecoratorInterface
             if (isset($data['total_count'])) {
                 $totalCount = $data['total_count'];
             }
-            $data = $data[$this->key];
+            $data = $data[$this->key] ?? [];
         }
 
         return new $this->class($data, $totalCount);
