@@ -44,6 +44,6 @@ class AdditionalFieldValue extends MiraklObject
     {
         $data = static::map($data);
 
-        return new static($data['code'], $data['value'], isset($data['type']) ? $data['type'] : null);
+        return new static($data['code'], $data['value'], $data['type'] ?? null);
     }
 }

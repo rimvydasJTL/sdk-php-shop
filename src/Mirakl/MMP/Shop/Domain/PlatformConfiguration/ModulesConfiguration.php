@@ -21,6 +21,13 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this                   setIsPromotions(bool $isPromotions)
  * @method bool                    getIsQuotes()                                                 // Is quote module activated
  * @method $this                   setIsQuotes(bool $isQuotes)
+ * @method bool                    getMiraklCatalogTransformer()
+ * @method bool                    isMiraklCatalogTransformer()
+ * @method $this                   setMiraklCatalogTransformer(bool $miraklCatalogTransformer)
+ * @method string                  getOfferManagementMode()
+ * @method $this                   setOfferManagementMode(string $offerManagementMode)
+ * @method string                  getOrderManagementMode()
+ * @method $this                   setOrderManagementMode(string $orderManagementMode)
  * @method TaxManagerConfiguration getTaxManager()                                               // Is promotion module activated
  * @method $this                   setTaxManager(TaxManagerConfiguration|array $taxManager)
  */

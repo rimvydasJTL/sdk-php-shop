@@ -14,11 +14,13 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method string       getCutOffTime()
  * @method $this        setCutOffTime(string $cutOffTime)
  * @method DeliveryTime getDeliveryTime()
- * @method $this        setDeliveryTime(DeliveryTime $deliveryTime)
+ * @method $this        setDeliveryTime(array|DeliveryTime $deliveryTime)
  * @method string       getLabel()
  * @method $this        setLabel(string $label)
  * @method \DateTime    getShippingDeadline()
  * @method $this        setShippingDeadline(\DateTime $shippingDeadline)
+ * @method string       getShippingPriceType()
+ * @method $this        setShippingPriceType(string $shippingPriceType)
  * @method float        getShippingPriceUnit()
  * @method $this        setShippingPriceUnit(float $shippingPriceUnit)
  * @method string       getShippingZoneCode()
@@ -34,6 +36,6 @@ class ShippingPriceByZoneAndType extends MiraklObject
      * @var array
      */
     protected static $dataTypes = [
-        'delivery_time' => [DeliveryTime::class, 'create']
+        'delivery_time' => [DeliveryTime::class, 'create'],
     ];
 }

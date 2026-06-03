@@ -1,4 +1,13 @@
 # Changelog
+## v1.25.0 - 2026-05-07
+### Features
+- Add retail prices, warehouses and ongoing discount campaigns to async offer export (OF52, OF54)
+- Add discount campaigns and refund tax details on orders (OR11, OR28)
+- Add reserve balance and sub-balances on shop payment details (A01)
+- Add platform configuration sub-objects: Catalog, Dropship, Promotion, Returns, Warehouses
+- Update APIs A01, IV01, OF01, OF21, OR11, OR28, PC01, PR01, S30
+- Update APIs CM11, DO01, PL11, PRI02, S31, TL02
+
 ## v1.24.0 2026-04-03
 ### Features
 - Add Shipment update APIs: ST07 (update), ST31 (update additional info)

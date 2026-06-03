@@ -26,8 +26,6 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Invoice\InvoiceCollection;
  * @method $this    setPaymentStatus(string $paymentStatus)
  * @method string[] getPayOutPspCodes()
  * @method $this    setPayOutPspCodes(string[] $payOutPspCodes)
- * @method string   getPspName()
- * @method $this    setPspName(string $pspName)
  * @method string   getType()
  * @method $this    setType(string $type) One of ALL, AUTO_INVOICE, MANUAL_INVOICE, MANUAL_CREDIT
  */
@@ -53,8 +51,7 @@ abstract class AbstractGetInvoicesRequest extends AbstractRequest
         'pay_out_psp_codes',
         'payment_status',
         'start_date',
-        'type',
-        'psp_name'
+        'type'
     ];
 
     /**

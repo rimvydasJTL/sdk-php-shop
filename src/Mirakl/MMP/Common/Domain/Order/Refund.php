@@ -21,18 +21,22 @@ use Mirakl\MMP\Common\Domain\Order\Amount\AmountBreakdown;
  * @method float                           getCommissionTaxAmount()
  * @method $this                           setCommissionTaxAmount(float $commissionTaxAmount)
  * @method CommissionTaxCollection         getCommissionTaxes()
+ * @method bool                            hasCommissionTaxes()
  * @method $this                           setCommissionTaxes(CommissionTaxCollection|array $commissionTaxes)
  * @method float                           getCommissionTotalAmount()
  * @method $this                           setCommissionTotalAmount(float $commissionTotalAmount)
- * @method bool                            hasCommissionTaxes()
  * @method \DateTime                       getDateCreated()
  * @method $this                           setDateCreated(\DateTime $dateCreated)
  * @method RefundEcoContributionCollection getEcoContributions()
  * @method $this                           setEcoContributions(RefundEcoContributionCollection|array $ecoContributions)
  * @method RefundFeeCollection             getFees()
  * @method $this                           setFees(RefundFeeCollection|array $fees)
+ * @method Funding                         getFunding()
+ * @method $this                           setFunding(array|Funding $funding)
  * @method string                          getId()
  * @method $this                           setId(string $id)
+ * @method string                          getOrderRefundId()
+ * @method $this                           setOrderRefundId(string $orderRefundId)
  * @method DiscardPurchaseInformation      getPurchaseInformation()
  * @method $this                           setPurchaseInformation(DiscardPurchaseInformation|array $purchaseInformation)
  * @method int                             getQuantity()
@@ -49,10 +53,10 @@ use Mirakl\MMP\Common\Domain\Order\Amount\AmountBreakdown;
  * @method $this                           setShippingTaxes(OrderTaxAmountCollection|array $shippingTaxes)
  * @method string                          getState()
  * @method $this                           setState(string $state)
- * @method string                          getTaxLegalNotice()
- * @method $this                           setTaxLegalNotice(string $taxLegalNotice)
  * @method OrderTaxAmountCollection        getTaxes()
  * @method $this                           setTaxes(OrderTaxAmountCollection|array $taxes)
+ * @method string                          getTaxLegalNotice()
+ * @method $this                           setTaxLegalNotice(string $taxLegalNotice)
  * @method \DateTime                       getTransactionDate()
  * @method $this                           setTransactionDate(\DateTime $transactionDate)
  * @method string                          getTransactionNumber()
@@ -75,6 +79,7 @@ class Refund extends MiraklObject
         'commission_taxes'          => [CommissionTaxCollection::class, 'create'],
         'eco_contributions'         => [RefundEcoContributionCollection::class, 'create'],
         'fees'                      => [RefundFeeCollection::class, 'create'],
+        'funding'                   => [Funding::class, 'create'],
         'purchase_information'      => [DiscardPurchaseInformation::class, 'create'],
         'shipping_amount_breakdown' => [AmountBreakdown::class, 'create'],
         'shipping_taxes'            => [OrderTaxAmountCollection::class, 'create'],

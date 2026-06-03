@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\OperatorShop\Request\Offer\Pricing\Importer;
 
+use Mirakl\Core\Domain\DateRangeTrait;
 use Mirakl\Core\Request\AbstractRequest;
 use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
@@ -15,24 +16,21 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Offer\Pricing\Importer\OfferPricin
 /**
  * (PRI02) Get information and statistics about an offer pricing import
  *
- * @method string[]  getImportIds()
- * @method $this     setImportIds(string[] $importIds)
- * @method int       getShopId()
- * @method $this     setShopId(int $shopId)
- * @method \DateTime getStartDate()
- * @method $this     setStartDate(\DateTime $startDate)
- * @method \DateTime getEndDate()
- * @method $this     setEndDate(\DateTime $endDate)
- * @method string    getStatus()
- * @method $this     setStatus(string $status)
- * @method string[]  getOrigins()
- * @method $this     setOrigins(string[] $origins)
+ * @method string[] getImportIds()
+ * @method $this    setImportIds(string[] $importIds)
+ * @method int      getShopId()
+ * @method $this    setShopId(int $shopId)
+ * @method string   getStatus()
+ * @method $this    setStatus(string $status)
+ * @method string[] getOrigins()
+ * @method $this    setOrigins(string[] $origins)
  */
 #[ApiOperation('PRI02')]
 abstract class AbstractOfferPricingsImportReportsRequest extends AbstractRequest
 {
     use SeekableTrait;
     use SortableTrait;
+    use DateRangeTrait;
 
     /**
      * @var string

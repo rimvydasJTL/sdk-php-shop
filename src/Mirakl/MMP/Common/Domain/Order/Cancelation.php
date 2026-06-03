@@ -19,8 +19,8 @@ use Mirakl\MMP\Common\Domain\Order\Amount\AmountBreakdown;
  * @method float                                getCommissionAmount()
  * @method $this                                setCommissionAmount(float $commissionAmount)
  * @method CommissionTaxCollection              getCommissionTaxes()
- * @method $this                                setCommissionTaxes(CommissionTaxCollection|array $commissionTaxes)
  * @method bool                                 hasCommissionTaxes()
+ * @method $this                                setCommissionTaxes(CommissionTaxCollection|array $commissionTaxes)
  * @method float                                getCommissionTotalAmount()
  * @method $this                                setCommissionTotalAmount(float $commissionTotalAmount)
  * @method \DateTime                            getCreatedDate()
@@ -33,6 +33,8 @@ use Mirakl\MMP\Common\Domain\Order\Amount\AmountBreakdown;
  * @method $this                                setEcoContributions(CancelationEcoContributionCollection|array $ecoContributions)
  * @method CancelationFeeCollection             getFees()
  * @method $this                                setFees(CancelationFeeCollection|array $fees)
+ * @method Funding                              getFunding()
+ * @method $this                                setFunding(array|Funding $funding)
  * @method string                               getId()
  * @method $this                                setId(string $id)
  * @method string                               getOrderLineId()
@@ -62,6 +64,7 @@ class Cancelation extends MiraklObject
         'commission_taxes'          => [CommissionTaxCollection::class, 'create'],
         'eco_contributions'         => [CancelationEcoContributionCollection::class, 'create'],
         'fees'                      => [CancelationFeeCollection::class, 'create'],
+        'funding'                   => [Funding::class, 'create'],
         'purchase_information'      => [DiscardPurchaseInformation::class, 'create'],
         'shipping_amount_breakdown' => [AmountBreakdown::class, 'create'],
         'shipping_taxes'            => [OrderTaxAmountCollection::class, 'create'],

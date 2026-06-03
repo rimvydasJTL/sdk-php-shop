@@ -9,6 +9,8 @@ use Mirakl\Core\Domain\MiraklObject;
 /**
  * @method string getCode()
  * @method $this  setCode(string $code)
+ * @method array  getFeeTypes()
+ * @method $this  setFeeTypes(array $feeTypes)
  * @method string getLabel()
  * @method $this  setLabel(string $label)
  */

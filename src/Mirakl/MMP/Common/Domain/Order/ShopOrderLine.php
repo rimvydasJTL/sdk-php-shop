@@ -20,12 +20,14 @@ use Mirakl\MMP\Common\Domain\Order\State\OrderLineStatus;
 /**
  * @method AdditionalFieldValueCollection     getAdditionalFields()
  * @method $this                              setAdditionalFields(AdditionalFieldValueCollection|array $additionalFields)
- * @method bool                               getCanRefund()
- * @method $this                              setCanRefund(bool $canRefund)
  * @method CancelationCollection              getCancelations()
  * @method $this                              setCancelations(CancelationCollection|array $cancelations)
+ * @method bool                               getCanRefund()
+ * @method $this                              setCanRefund(bool $canRefund)
  * @method OrderLineCommission                getCommission()
  * @method $this                              setCommission(OrderLineCommission|array $commission)
+ * @method DiscountCampaign                   getDiscountCampaign()
+ * @method $this                              setDiscountCampaign(array|DiscountCampaign $discountCampaign)
  * @method OrderLineEcoContributionCollection getEcoContributions()
  * @method $this                              setEcoContributions(OrderLineEcoContributionCollection|array $ecoContributions)
  * @method FeeCollection                      getFees()
@@ -48,6 +50,8 @@ use Mirakl\MMP\Common\Domain\Order\State\OrderLineStatus;
  * @method $this                              setPriceAmountBreakdown(AmountBreakdown|array $priceAmountBreakdown)
  * @method ProductMediaCollection             getProductMedia()
  * @method $this                              setProductMedia(ProductMediaCollection|array $productMedia)
+ * @method string                             getProductShopSku()
+ * @method $this                              setProductShopSku(string $productShopSku)
  * @method AppliedPromotionCollection         getPromotions()
  * @method $this                              setPromotions(AppliedPromotionCollection|array $promotions)
  * @method PurchaseInformation                getPurchaseInformation()
@@ -60,16 +64,20 @@ use Mirakl\MMP\Common\Domain\Order\State\OrderLineStatus;
  * @method $this                              setShippingFrom(OrderLineShippingFrom|array $shippingFrom)
  * @method float                              getShippingPrice()
  * @method $this                              setShippingPrice(float $shippingPrice)
+ * @method float                              getShippingPriceAdditionalUnit()
+ * @method $this                              setShippingPriceAdditionalUnit(float $shippingPriceAdditionalUnit)
  * @method AmountBreakdown                    getShippingPriceAmountBreakdown()
  * @method $this                              setShippingPriceAmountBreakdown(AmountBreakdown|array $shippingPriceAmountBreakdown)
+ * @method float                              getShippingPriceUnit()
+ * @method $this                              setShippingPriceUnit(float $shippingPriceUnit)
  * @method OrderTaxAmountCollection           getShippingTaxes()
  * @method $this                              setShippingTaxes(OrderTaxAmountCollection|array $shippingTaxes)
  * @method OrderLineStatus                    getStatus()
  * @method $this                              setStatus(OrderLineStatus|array $status)
- * @method string                             getTaxLegalNotice()
- * @method $this                              setTaxLegalNotice(string $taxLegalNotice)
  * @method OrderTaxAmountCollection           getTaxes()
  * @method $this                              setTaxes(OrderTaxAmountCollection|array $taxes)
+ * @method string                             getTaxLegalNotice()
+ * @method $this                              setTaxLegalNotice(string $taxLegalNotice)
  * @method float                              getTotalPrice()
  * @method $this                              setTotalPrice(float $totalPrice)
  */
@@ -117,6 +125,7 @@ class ShopOrderLine extends MiraklObject
         'additional_fields'               => [AdditionalFieldValueCollection::class, 'create'],
         'cancelations'                    => [CancelationCollection::class, 'create'],
         'commission'                      => [OrderLineCommission::class, 'create'],
+        'discount_campaign'               => [DiscountCampaign::class, 'create'],
         'eco_contributions'               => [OrderLineEcoContributionCollection::class, 'create'],
         'fees'                            => [FeeCollection::class, 'create'],
         'history'                         => [OrderLineHistory::class, 'create'],

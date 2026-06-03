@@ -17,6 +17,8 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this  setLabel(string $label)
  * @method array  getMimeTypes()
  * @method $this  setMimeTypes(array $mimeTypes)
+ * @method array  getModels()
+ * @method $this  setModels(array $models)
  */
 class DocumentsConfiguration extends MiraklObject
 {

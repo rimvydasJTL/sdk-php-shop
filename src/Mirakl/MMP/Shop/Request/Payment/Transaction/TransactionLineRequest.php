@@ -72,7 +72,6 @@ class TransactionLineRequest extends AbstractRequest
         'order_references_for_seller' => 'order_reference_for_seller',
         'pay_out_psp_codes',
         'payment_state',
-        'psp_name',
         'shop_models' => 'shop_model',
         'transaction_date_from',
         'transaction_date_to',

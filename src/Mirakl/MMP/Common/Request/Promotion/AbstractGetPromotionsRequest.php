@@ -58,10 +58,8 @@ abstract class AbstractGetPromotionsRequest extends AbstractRequest
         'date_created_to',
         'ids',
         'last_request_date',
-        'shop_ids',
         'reward_offer_ids',
         'trigger_offer_ids',
         'channel_codes',
-        'campaign_identifiers',
     ];
 }

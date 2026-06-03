@@ -35,7 +35,6 @@ use Mirakl\MMP\Common\Request\Document\AbstractDocumentsDownloadRequest;
  * </pre>
  * </p>
  *
- * @method array getDocumentIds()
  * @method array getShopIds()
  * @method array getTypeCodes()
  * @method $this setTypeCodes(array $typeCodes)
@@ -51,7 +50,7 @@ abstract class AbstractDownloadShopsDocumentsRequest extends AbstractDocumentsDo
     /**
      * @var array
      */
-    public $queryParams = ['shop_ids', 'document_ids', 'type_codes'];
+    public $queryParams = ['document_ids', 'type_codes'];
 
     /**
      * @return $this

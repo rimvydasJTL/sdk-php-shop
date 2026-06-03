@@ -15,6 +15,8 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this                setFiscalInformation(FiscalInformation|array $fiscalInformation)
  * @method FiscalRepresentative getFiscalRepresentative()
  * @method $this                setFiscalRepresentative(FiscalRepresentative|array $fiscalRepresentative)
+ * @method string               getId()
+ * @method $this                setId(string $id)
  * @method PersonalInformation  getPersonalInformation()
  * @method $this                setPersonalInformation(PersonalInformation|array $personalInformation)
  * @method RegistrationAddress  getRegistrationAddress()

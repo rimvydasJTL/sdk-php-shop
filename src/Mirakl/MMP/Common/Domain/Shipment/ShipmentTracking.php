@@ -6,10 +6,13 @@ namespace Mirakl\MMP\Common\Domain\Shipment;
 
 use Mirakl\Core\Domain\MiraklObject;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\ShipmentTrackingMilestoneCollection;
+use Mirakl\MMP\Common\Domain\Shipment\CarrierExpectedDeliveryDate;
 
 /**
  * @method string                              getCarrierCode()
  * @method $this                               setCarrierCode(string $carrierCode)
+ * @method CarrierExpectedDeliveryDate         getCarrierExpectedDeliveryDate()
+ * @method $this                               setCarrierExpectedDeliveryDate(array|CarrierExpectedDeliveryDate $carrierExpectedDeliveryDate)
  * @method string                              getCarrierName()
  * @method $this                               setCarrierName(string $carrierName)
  * @method string                              getCarrierStandardCode()
@@ -31,7 +34,8 @@ class ShipmentTracking extends MiraklObject
      * @var array
      */
     protected static $dataTypes = [
-        'last_known_location' => [ShipmentTrackingLastKnownLocation::class, 'create'],
-        'milestones'          => [ShipmentTrackingMilestoneCollection::class, 'create'],
+        'carrier_expected_delivery_date' => [CarrierExpectedDeliveryDate::class, 'create'],
+        'last_known_location'            => [ShipmentTrackingLastKnownLocation::class, 'create'],
+        'milestones'                     => [ShipmentTrackingMilestoneCollection::class, 'create'],
     ];
 }

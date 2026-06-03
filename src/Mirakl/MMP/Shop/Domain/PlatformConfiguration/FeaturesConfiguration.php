@@ -7,8 +7,12 @@ namespace Mirakl\MMP\Shop\Domain\PlatformConfiguration;
 use Mirakl\Core\Domain\MiraklObject;
 
 /**
+ * @method Catalog                                 getCatalog()
+ * @method $this                                   setCatalog(array|Catalog $catalog)
  * @method DirectPaymentCustomerStoreConfiguration getDirectPaymentCustomerStore() // Allow transactions taking place outside of Mirakl between customers and sellers
  * @method $this                                   setDirectPaymentCustomerStore(DirectPaymentCustomerStoreConfiguration|array $directPaymentCustomerStore)
+ * @method Dropship                                getDropship()
+ * @method $this                                   setDropship(array|Dropship $dropship)
  * @method bool                                    getIsCircularEconomyDataCollection() // Allow operators to collect data related to the circular economy regulation
  * @method $this                                   setIsCircularEconomyDataCollection(bool $isCircularEconomyDataCollection)
  * @method bool                                    getIsCompetitivePricingTool() // The competitive pricing tool allows stores to view and possibly match competing Marketplace offers
@@ -21,8 +25,14 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this                                   setIsNoReplyNeeded(bool $isNoReplyNeeded)
  * @method bool                                    getIsProductDataValidationByChannel() // Facilitates the management of attributes in a multilingual context
  * @method $this                                   setIsProductDataValidationByChannel(bool $isDisableSellerAlternativeCarrier)
+ * @method bool                                    getKycStatusPerSeller()
+ * @method bool                                    isKycStatusPerSeller()
+ * @method $this                                   setKycStatusPerSeller(bool $kycStatusPerSeller)
  * @method string                                  getLeadTimeToShipBySellersEnabled() // Allows sellers to override the default lead time to ship
  * @method $this                                   setLeadTimeToShipBySellersEnabled(string $leadTimeToShipBySellersEnabled)
+ * @method bool                                    getMultiPayoutPspPerSeller()
+ * @method bool                                    isMultiPayoutPspPerSeller()
+ * @method $this                                   setMultiPayoutPspPerSeller(bool $multiPayoutPspPerSeller)
  * @method string                                  getOfferPricesDecimals() // Defines maximum number of decimals in offer prices
  * @method $this                                   setOfferPricesDecimals(string $offerPricesDecimals)
  * @method string                                  getOperatorCsvDelimiter() // The delimiter used in the CSV files exported from the back office. COMMA: ',' delimiter. SEMICOLON: ';' delimiter
@@ -33,8 +43,15 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this                                   setOrderTaxMode(string $orderTaxMode)
  * @method OrderWorkflowsConfiguration             getOrderWorkflows() // Order workflows activated
  * @method $this                                   setOrderWorkflows(OrderWorkflowsConfiguration|array $orderWorkflows)
+ * @method bool                                    getPaymentConfirmation()
+ * @method bool                                    isPaymentConfirmation()
+ * @method $this                                   setPaymentConfirmation(bool $paymentConfirmation)
  * @method PricingConfiguration                    getPricing() // Pricing related features activated
  * @method $this                                   setPricing(PricingConfiguration|array $pricing)
+ * @method Promotion                               getPromotion()
+ * @method $this                                   setPromotion(array|Promotion $promotion)
+ * @method Returns                                 getReturns()
+ * @method $this                                   setReturns(array|Returns $returns)
  * @method ShipmentConfiguration                   getShipment() // Shipment related features activated
  * @method $this                                   setShipment(ShipmentConfiguration|array $shipmentConfiguration)
  * @method ShopTaxOptionsConfiguration             getShopTaxOptions() // Tax-related options for professional shops
@@ -43,6 +60,8 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this                                   setTaxCollection(TaxCollectionConfiguration|array $taxCollectionConfiguration)
  * @method TaxIdNumberConfiguration                getTaxIdNumber() // Unique identifier used to conduct tax-related formalities
  * @method $this                                   setTaxIdNumber(TaxIdNumberConfiguration|array $taxIdNumber) // Allows the collection of information required to calculate taxes, with or without the tax connector
+ * @method Warehouses                              getWarehouses()
+ * @method $this                                   setWarehouses(array|Warehouses $warehouses)
  */
 class FeaturesConfiguration extends MiraklObject
 {
@@ -63,6 +82,11 @@ class FeaturesConfiguration extends MiraklObject
         'tax_collection'                => [TaxCollectionConfiguration::class, 'create'],
         'tax_id_number'                 => [TaxIdNumberConfiguration::class, 'create'],
         'pricing'                       => [PricingConfiguration::class, 'create'],
+        'catalog'                       => [Catalog::class, 'create'],
+        'dropship'                      => [Dropship::class, 'create'],
+        'promotion'                     => [Promotion::class, 'create'],
+        'returns'                       => [Returns::class, 'create'],
+        'warehouses'                    => [Warehouses::class, 'create'],
     ];
 
     /**

@@ -33,7 +33,7 @@ abstract class AbstractOfferImportRequest extends AbstractFileRequest
     /**
      * @var array
      */
-    public $bodyParams = ['file', 'import_mode', 'operator_format', 'with_products'];
+    public $bodyParams = ['import_mode', 'operator_format', 'with_products'];
 
     /**
      * @inheritdoc

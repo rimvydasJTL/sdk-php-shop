@@ -5,18 +5,20 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Shop\Domain\Offer;
 
 use Mirakl\MMP\Common\Domain\Offer\AbstractOffer;
+use Mirakl\MMP\Shop\Domain\Collection\Offer\RetailPriceCollection;
+use Mirakl\MMP\Shop\Domain\Collection\Offer\WarehouseCollection;
 
 /**
- * @method string getInternalDescription()
- * @method $this  setInternalDescription(string $internalDescription)
- * @method float  getMsrp()
- * @method $this  setMsrp(float $msrp)
- * @method array  getRetailPrices()
- * @method $this  setRetailPrices(array $retailPrices)
- * @method string getSku()
- * @method $this  setSku(string $sku)
- * @method array  getWarehouses()
- * @method $this  setWarehouses(array $warehouses)
+ * @method string                getInternalDescription()
+ * @method $this                 setInternalDescription(string $internalDescription)
+ * @method float                 getMsrp()
+ * @method $this                 setMsrp(float $msrp)
+ * @method RetailPriceCollection getRetailPrices()
+ * @method $this                 setRetailPrices(array|RetailPriceCollection $retailPrices)
+ * @method string                getSku()
+ * @method $this                 setSku(string $sku)
+ * @method WarehouseCollection   getWarehouses()
+ * @method $this                 setWarehouses(array|WarehouseCollection $warehouses)
  */
 class ShopOffer extends AbstractOffer
 {
@@ -40,5 +42,13 @@ class ShopOffer extends AbstractOffer
         'available_end_date'            => 'availability/end_date',
         'offer_additional_fields'       => 'additional_fields',
         'shop_sku'                      => 'sku',
+    ];
+
+    /**
+     * @var array
+     */
+    protected static $dataTypes = [
+        'retail_prices' => [RetailPriceCollection::class, 'create'],
+        'warehouses'    => [WarehouseCollection::class, 'create'],
     ];
 }

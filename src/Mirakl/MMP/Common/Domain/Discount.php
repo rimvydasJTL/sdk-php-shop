@@ -11,11 +11,15 @@ use Mirakl\MMP\Common\Domain\Collection\DiscountRangeCollection;
 /**
  * @method float                   getDiscountPrice()
  * @method $this                   setDiscountPrice(float $discountPrice)
+ * @method \DateTime               getEndDate()
+ * @method $this                   setEndDate(\DateTime $endDate)
  * @method float                   getOriginPrice()
  * @method $this                   setOriginPrice(float $originPrice)
  * @method float                   getPrice()
  * @method $this                   setPrice(float $price)
  * @method DiscountRangeCollection getRanges()
+ * @method \DateTime               getStartDate()
+ * @method $this                   setStartDate(\DateTime $startDate)
  */
 class Discount extends MiraklObject
 {

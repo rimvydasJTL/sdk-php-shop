@@ -69,6 +69,8 @@ use Mirakl\MMP\Shop\Domain\Order\Cancelation\CancelationsCreated;
 use Mirakl\MMP\Shop\Domain\PlatformConfiguration\PlatformConfigurationResponse;
 use Mirakl\MMP\Shop\Domain\Returns\ReturnAcceptOrRefuseResponse;
 use Mirakl\MMP\Shop\Domain\Returns\UpdateReturnsResponse;
+use Mirakl\MMP\Shop\Domain\Shipping\ShippingChargesShopResponse;
+use Mirakl\MMP\Shop\Domain\Shipping\ShippingConfigurationShopResponse;
 use Mirakl\MMP\Shop\Domain\Shop\ShopAccount;
 use Mirakl\MMP\Shop\Domain\Shop\UpdatedShopAndError;
 use Mirakl\MMP\Shop\Request\Account\GetAccountStatisticsRequest;
@@ -144,6 +146,8 @@ use Mirakl\MMP\Shop\Request\Shipment\ShipShipmentsRequest;
 use Mirakl\MMP\Shop\Request\Shipment\UpdateShipmentTrackingsRequest;
 use Mirakl\MMP\Shop\Request\Shipping\GetLogisticClassRequest;
 use Mirakl\MMP\Shop\Request\Shipping\GetShippingCarriersRequest;
+use Mirakl\MMP\Shop\Request\Shipping\GetShippingChargesShopRequest;
+use Mirakl\MMP\Shop\Request\Shipping\GetShippingConfigurationShopRequest;
 use Mirakl\MMP\Shop\Request\Shipping\GetShippingTypesRequest;
 use Mirakl\MMP\Shop\Request\Shipping\GetShippingZonesRequest;
 use Mirakl\MMP\Shop\Request\Shop\Document\DeleteShopDocumentRequest;
@@ -204,6 +208,8 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method ReasonCollection                      getReasons(GetReasonsRequest $request)
  * @method SeekableCollection                    getReturns(GetReturnsRequest $request)
  * @method SeekableCollection                    getShipments(GetShipmentsRequest $request)
+ * @method ShippingChargesShopResponse           getShippingChargesShop(GetShippingChargesShopRequest $request)
+ * @method ShippingConfigurationShopResponse     getShippingConfigurationShop(GetShippingConfigurationShopRequest $request)
  * @method ShippingTypeWithDescriptionCollection getShippingTypes(GetShippingTypesRequest $request)
  * @method ShippingZoneDetailCollection          getShippingZones(GetShippingZonesRequest $request)
  * @method ShopDocumentCollection                getShopDocuments(GetShopDocumentsRequest $request)
