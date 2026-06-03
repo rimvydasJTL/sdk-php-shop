@@ -6,6 +6,8 @@ namespace Mirakl\MMP\Common\Request\Order\Document;
 
 use Mirakl\Core\Exception\RequestValidationException;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Order\Document\OrderDocumentCollection;
 
 /**
@@ -13,6 +15,7 @@ use Mirakl\MMP\Common\Domain\Collection\Order\Document\OrderDocumentCollection;
  *
  * @method string[] getOrderIds()
  */
+#[ApiOperation('OR72')]
 abstract class AbstractGetOrderDocumentsRequest extends AbstractRequest
 {
     /**
@@ -39,7 +42,7 @@ abstract class AbstractGetOrderDocumentsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OrderDocumentCollection::decorator('order_documents');
     }

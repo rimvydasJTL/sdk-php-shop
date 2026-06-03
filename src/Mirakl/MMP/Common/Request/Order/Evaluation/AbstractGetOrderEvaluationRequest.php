@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Evaluation;
 
 use Mirakl\Core\Domain\LocalizableTrait;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Evaluation;
 use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
 
 /**
  * (OR51) Get the evaluation of an order
  */
+#[ApiOperation('OR51')]
 abstract class AbstractGetOrderEvaluationRequest extends AbstractOrderRequest
 {
     use LocalizableTrait;
@@ -23,7 +26,7 @@ abstract class AbstractGetOrderEvaluationRequest extends AbstractOrderRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return Evaluation::decorator();
     }

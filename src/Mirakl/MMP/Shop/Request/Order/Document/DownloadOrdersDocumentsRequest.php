@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Order\Document;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Order\Document\AbstractDownloadOrdersDocumentsRequest;
 
 /**
@@ -37,22 +38,8 @@ use Mirakl\MMP\Common\Request\Order\Document\AbstractDownloadOrdersDocumentsRequ
  * |   |__ image(1).png
  * </pre>
  * </p>
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Order\Document\DownloadOrdersDocumentsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new DownloadOrdersDocumentsRequest();
- * $request->setOrderIds(['ORDER_ID_1', 'ORDER_ID_2']);
- * $result = $api->downloadOrdersDocuments($request);
- * // $result => @see \Mirakl\Core\Domain\FileWrapper
- * // Download file:
- * $result->download();
- * </code>
  */
+#[ApiOperation('OR73')]
 class DownloadOrdersDocumentsRequest extends AbstractDownloadOrdersDocumentsRequest
 {
 }

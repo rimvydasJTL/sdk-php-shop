@@ -1,4 +1,14 @@
 # Changelog
+## v1.24.0 2026-04-03
+### Features
+- Add Shipment update APIs: ST07 (update), ST31 (update additional info)
+- Add User Role API: RO02 (list shop user roles)
+- Add Offer Stock APIs: STO01 (import stock file), STO02 (get import status), STO03 (get error report)
+- Add Returns APIs: RT27 (close), RT29 (cancel)
+- Add Shop API: A21 (get account statistics)
+- Add Inbox API: M14 (create thread)
+- Add Guatemalan, Payout, Philippines and Serbian bank account types
+
 ## v1.23.0 - 2025-10-13
 ### Features
 - Remove the `full` parameter from V01

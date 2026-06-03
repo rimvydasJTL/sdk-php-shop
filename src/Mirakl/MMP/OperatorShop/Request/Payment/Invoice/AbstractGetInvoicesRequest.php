@@ -6,8 +6,10 @@ namespace Mirakl\MMP\OperatorShop\Request\Payment\Invoice;
 
 use Mirakl\Core\Domain\DateRangeTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\SortableTrait;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\OperatorShop\Domain\Collection\Invoice\InvoiceCollection;
 
 /**
@@ -22,11 +24,14 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Invoice\InvoiceCollection;
  * @method $this    setIssuingUserTypes(string[] $issuingUserTypes)
  * @method string   getPaymentStatus()
  * @method $this    setPaymentStatus(string $paymentStatus)
+ * @method string[] getPayOutPspCodes()
+ * @method $this    setPayOutPspCodes(string[] $payOutPspCodes)
  * @method string   getPspName()
  * @method $this    setPspName(string $pspName)
  * @method string   getType()
  * @method $this    setType(string $type) One of ALL, AUTO_INVOICE, MANUAL_INVOICE, MANUAL_CREDIT
  */
+#[ApiOperation('IV01')]
 abstract class AbstractGetInvoicesRequest extends AbstractRequest
 {
     use DateRangeTrait;
@@ -45,6 +50,7 @@ abstract class AbstractGetInvoicesRequest extends AbstractRequest
         'currency',
         'end_date',
         'issuing_user_types',
+        'pay_out_psp_codes',
         'payment_status',
         'start_date',
         'type',
@@ -54,7 +60,7 @@ abstract class AbstractGetInvoicesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return InvoiceCollection::decorator('invoices');
     }

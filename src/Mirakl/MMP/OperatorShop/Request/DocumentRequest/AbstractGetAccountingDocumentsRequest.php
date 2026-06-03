@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\DocumentRequest;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\OperatorShop\Domain\Collection\DocumentRequest\AccountingDocumentRequestResponseCollection;
 
 /**
@@ -49,6 +51,7 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\DocumentRequest\AccountingDocument
  * @method string[]  getTypes()
  * @method $this     setTypes(string[] $types)
  */
+#[ApiOperation('DR11')]
 abstract class AbstractGetAccountingDocumentsRequest extends AbstractRequest
 {
     use SeekableTrait;
@@ -101,7 +104,7 @@ abstract class AbstractGetAccountingDocumentsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(AccountingDocumentRequestResponseCollection::class, 'data');
     }

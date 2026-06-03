@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Common\Request\Order\Accept;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Domain\Collection\Order\Accept\AcceptOrderLineCollection;
 use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
 
@@ -13,6 +14,7 @@ use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
  * @method AcceptOrderLineCollection getOrderLines()
  * @method $this                     setOrderLines(array|AcceptOrderLineCollection $orderLines)
  */
+#[ApiOperation('OR21')]
 abstract class AbstractAcceptOrderRequest extends AbstractOrderRequest
 {
     /**

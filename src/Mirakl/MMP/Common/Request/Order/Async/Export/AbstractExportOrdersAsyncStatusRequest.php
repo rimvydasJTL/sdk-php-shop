@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Async\Export;
 
 use Mirakl\Core\Request\AbstractTrackingRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Order\Async\Export\ExportOrdersAsyncStatusResponse;
 
 /**
@@ -13,6 +15,7 @@ use Mirakl\MMP\Common\Domain\Order\Async\Export\ExportOrdersAsyncStatusResponse;
  * Retrieve the status for an OR13 orders export request.
  * When the export is complete, the URLs to retrieve the files are returned (OR15).
  */
+#[ApiOperation('OR14')]
 abstract class AbstractExportOrdersAsyncStatusRequest extends AbstractTrackingRequest
 {
     /**
@@ -23,7 +26,7 @@ abstract class AbstractExportOrdersAsyncStatusRequest extends AbstractTrackingRe
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ExportOrdersAsyncStatusResponse::decorator();
     }

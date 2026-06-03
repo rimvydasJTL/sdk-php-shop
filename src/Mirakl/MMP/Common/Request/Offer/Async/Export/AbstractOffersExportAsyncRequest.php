@@ -6,6 +6,7 @@ namespace Mirakl\MMP\Common\Request\Offer\Async\Export;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Offer\Async\Export\OffersExportAsyncTrackingResult;
 
 /**
@@ -70,7 +71,7 @@ abstract class AbstractOffersExportAsyncRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OffersExportAsyncTrackingResult::decorator();
     }

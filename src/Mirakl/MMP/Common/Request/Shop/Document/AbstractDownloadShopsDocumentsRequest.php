@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shop\Document;
 
 use Mirakl\Core\Exception\RequestValidationException;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Document\AbstractDocumentsDownloadRequest;
 
 /**
@@ -39,6 +40,7 @@ use Mirakl\MMP\Common\Request\Document\AbstractDocumentsDownloadRequest;
  * @method array getTypeCodes()
  * @method $this setTypeCodes(array $typeCodes)
  */
+#[ApiOperation('S31')]
 abstract class AbstractDownloadShopsDocumentsRequest extends AbstractDocumentsDownloadRequest
 {
     /**

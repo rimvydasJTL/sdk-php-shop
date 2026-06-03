@@ -6,6 +6,8 @@ namespace Mirakl\MMP\Common\Request\AdditionalField;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\AdditionalFieldCollection;
 
 /**
@@ -14,6 +16,7 @@ use Mirakl\MMP\Common\Domain\Collection\AdditionalFieldCollection;
  * @method array getEntities() Array of AdditionalFieldLinkedEntity
  * @method $this setEntities(array $entities)
  */
+#[ApiOperation('AF01')]
 abstract class AbstractGetAdditionalFieldRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -31,7 +34,7 @@ abstract class AbstractGetAdditionalFieldRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return AdditionalFieldCollection::decorator('additional_fields');
     }

@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Shop\Request\Payment\Transaction;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Shop\Domain\Collection\Payment\Transaction\TransactionLineCollection;
 
 /**
@@ -33,6 +35,8 @@ use Mirakl\MMP\Shop\Domain\Collection\Payment\Transaction\TransactionLineCollect
  * @method $this     setOrderReferencesForSeller(string[] $orderReferenceForSeller)
  * @method string[]  getPaymentState()
  * @method $this     setPaymentState(string[] $paymentState)
+ * @method string[]  getPayOutPspCodes()
+ * @method $this     setPayOutPspCodes(string[] $payOutPspCodes)
  * @method string[]  getShopModels()
  * @method $this     setShopModels(string[] $shopModel)
  * @method \DateTime getTransactionDateFrom()
@@ -41,32 +45,8 @@ use Mirakl\MMP\Shop\Domain\Collection\Payment\Transaction\TransactionLineCollect
  * @method $this     setTransactionDateTo(\DateTime $transactionDateTo)
  * @method string[]  getTransactionType()
  * @method $this     setTransactionType(string[] $transactionType)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- *
- * $request = new \Mirakl\MMP\Shop\Request\Payment\Transaction\TransactionLineRequest();
- * $request->setDateCreatedFrom(new \Datetime('-1 Month'));
- *
- * $result = $api->getTransactionLine($request);
- *
- * var_dump($result); // @see \Mirakl\MMP\Common\Domain\Collection\SeekableCollection
- *
- * // Loop on collection with $result->getCollection()
- *
- * // Get next results with token from response:
- * $request = new \Mirakl\MMP\Shop\Request\Payment\Transaction\TransactionLineRequest();
- * $request->setPageToken($result->getNextPageToken());
- * $result = $api->getTransactionLine($request);
- * var_dump($result); // @see \Mirakl\MMP\Common\Domain\Collection\SeekableCollection
- *
- * // See also previous token: @see \Mirakl\MMP\Common\Domain\Collection\SeekableCollection::getPreviousPageToken()
- * </code>
  */
+#[ApiOperation('TL02')]
 class TransactionLineRequest extends AbstractRequest
 {
     use SeekableTrait;
@@ -90,6 +70,7 @@ class TransactionLineRequest extends AbstractRequest
         'order_line_id',
         'order_references_for_customer' => 'order_reference_for_customer',
         'order_references_for_seller' => 'order_reference_for_seller',
+        'pay_out_psp_codes',
         'payment_state',
         'psp_name',
         'shop_models' => 'shop_model',
@@ -101,7 +82,7 @@ class TransactionLineRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(TransactionLineCollection::class, 'data');
     }

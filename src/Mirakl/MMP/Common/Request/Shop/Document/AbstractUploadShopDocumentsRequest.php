@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shop\Document;
 
 use Mirakl\Core\Domain\Collection\DocumentCollection;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Document\AbstractDocumentsUploadRequest;
 
 /**
@@ -17,6 +18,7 @@ use Mirakl\MMP\Common\Request\Document\AbstractDocumentsUploadRequest;
  * @method string getShopId()
  * @method $this  setShopId(string $shopId)
  */
+#[ApiOperation('S32')]
 abstract class AbstractUploadShopDocumentsRequest extends AbstractDocumentsUploadRequest
 {
     /**

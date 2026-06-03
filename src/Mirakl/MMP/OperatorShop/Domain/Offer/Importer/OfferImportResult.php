@@ -33,6 +33,8 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this     setReasonStatus(string $reasonStatus)
  * @method string    getStatus()
  * @method $this     setStatus(string $status)
+ * @method string    getType()
+ * @method $this     setType(string $type)
  */
 class OfferImportResult extends MiraklObject
 {

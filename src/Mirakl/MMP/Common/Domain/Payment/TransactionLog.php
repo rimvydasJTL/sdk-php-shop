@@ -8,10 +8,10 @@ use Mirakl\Core\Domain\MiraklObject;
 use Mirakl\MMP\Common\Domain\Product\ProductInfo;
 
 /**
- * @method string      getAccountingDocumentNumber()
- * @method $this       setAccountingDocumentNumber(string $number)
  * @method \DateTime   getAccountingDocumentCreationDate()
  * @method $this       setAccountingDocumentCreationDate(\DateTime $creationDate)
+ * @method string      getAccountingDocumentNumber()
+ * @method $this       setAccountingDocumentNumber(string $number)
  * @method float       getAmount()
  * @method $this       setAmount(float $price)
  * @method float       getAmountCredited()
@@ -28,6 +28,10 @@ use Mirakl\MMP\Common\Domain\Product\ProductInfo;
  * @method $this       setDateCreated(\DateTime $dateCreated)
  * @method string      getId()
  * @method $this       setId(string $id)
+ * @method \DateTime   getInvoiceCreationDate()
+ * @method $this       setInvoiceCreationDate(\DateTime $invoiceCreationDate)
+ * @method int         getInvoiceNumber()
+ * @method $this       setInvoiceNumber(int $invoiceNumber)
  * @method \DateTime   getLastUpdatedDate()
  * @method $this       setLastUpdatedDate(\DateTime $lastUpdatedDate)
  * @method float       getOfferPriceUnit()
@@ -36,10 +40,10 @@ use Mirakl\MMP\Common\Domain\Product\ProductInfo;
  * @method $this       setOfferSku(string $offerSku)
  * @method string      getOfferState()
  * @method $this       setOfferState(string $offerState)
- * @method string      getOrderId()
- * @method $this       setOrderId(string $orderId)
  * @method string      getOrderCommercialId()
  * @method $this       setOrderCommercialId(string $orderCommercialId)
+ * @method string      getOrderId()
+ * @method $this       setOrderId(string $orderId)
  * @method string      getOrderLineId()
  * @method $this       setOrderLineId(string $orderLineId)
  * @method string      getOrderState()
@@ -66,6 +70,8 @@ use Mirakl\MMP\Common\Domain\Product\ProductInfo;
  * @method $this       setShopName(string $shopName)
  * @method string      getShopOperatorInternalId()
  * @method $this       setShopOperatorInternalId(string $id)
+ * @method string      getShopTaxCode()
+ * @method $this       setShopTaxCode(string $shopTaxCode)
  * @method float       getShopTaxRate()
  * @method $this       setShopTaxRate(float $price)
  * @method \DateTime   getTransactionDate()
@@ -74,6 +80,8 @@ use Mirakl\MMP\Common\Domain\Product\ProductInfo;
  * @method $this       setTransactionNumber(string $number)
  * @method string      getTransactionType()
  * @method $this       setTransactionType(string $type)
+ * @method float       getVatRate()
+ * @method $this       setVatRate(float $vatRate)
  */
 class TransactionLog extends MiraklObject
 {

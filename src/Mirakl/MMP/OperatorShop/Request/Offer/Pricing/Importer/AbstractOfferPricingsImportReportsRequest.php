@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Offer\Pricing\Importer;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\OperatorShop\Domain\Collection\Offer\Pricing\Importer\OfferPricingsImportReportCollection;
 
 /**
@@ -26,6 +28,7 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Offer\Pricing\Importer\OfferPricin
  * @method string[]  getOrigins()
  * @method $this     setOrigins(string[] $origins)
  */
+#[ApiOperation('PRI02')]
 abstract class AbstractOfferPricingsImportReportsRequest extends AbstractRequest
 {
     use SeekableTrait;
@@ -59,7 +62,7 @@ abstract class AbstractOfferPricingsImportReportsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(OfferPricingsImportReportCollection::class, 'data');
     }

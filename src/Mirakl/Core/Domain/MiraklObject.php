@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\Core\Domain;
 
 use Mirakl\Core\Domain\Collection\MiraklCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 
 class MiraklObject implements ArrayableInterface, \IteratorAggregate
 {
@@ -68,9 +69,9 @@ class MiraklObject implements ArrayableInterface, \IteratorAggregate
     /**
      * Useful method for requests returning domain objects
      *
-     * @return \Mirakl\Core\Response\Decorator\MiraklObject
+     * @return ResponseDecoratorInterface
      */
-    public static function decorator()
+    public static function decorator(): ResponseDecoratorInterface
     {
         return new \Mirakl\Core\Response\Decorator\MiraklObject(static::class);
     }

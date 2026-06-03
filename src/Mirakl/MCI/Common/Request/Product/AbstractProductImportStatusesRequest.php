@@ -7,6 +7,7 @@ namespace Mirakl\MCI\Common\Request\Product;
 use Mirakl\Core\Request\AbstractRequest;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\SortableTrait;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MCI\Common\Domain\Collection\Product\ProductImportResultCollection;
 
 /**
@@ -43,7 +44,7 @@ abstract class AbstractProductImportStatusesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ProductImportResultCollection::decorator('product_import_trackings');
     }

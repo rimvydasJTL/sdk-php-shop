@@ -6,9 +6,11 @@ namespace Mirakl\MMP\OperatorShop\Request\Offer\Importer;
 
 use Mirakl\Core\Domain\DateRangeTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\OperatorShop\Domain\Collection\Order\Importer\OfferImportCollection;
 
 /**
@@ -23,6 +25,7 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Order\Importer\OfferImportCollecti
  * @method string   getStatus()
  * @method $this    setStatus(string $status)     One of \Mirakl\MMP\OperatorShop\Domain\Offer\Importer\ImportStatus
  */
+#[ApiOperation('OF04')]
 abstract class AbstractOffersImportsRequest extends AbstractRequest
 {
     use DateRangeTrait;
@@ -47,7 +50,7 @@ abstract class AbstractOffersImportsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(OfferImportCollection::class, 'data');
     }

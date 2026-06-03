@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Order\Refund;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\OperatorShop\Domain\Collection\Order\Refund\CreateRefundCollection;
 
 /**
@@ -15,6 +16,7 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Order\Refund\CreateRefundCollectio
  * @method CreateRefundCollection getRefunds()
  * @method $this                  setRefunds(array|CreateRefundCollection $refunds)
  */
+#[ApiOperation('OR28')]
 abstract class AbstractCreateRefundRequest extends AbstractRequest
 {
     /**

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Offer\Pricing\Importer;
 
 use Mirakl\Core\Request\AbstractFileRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\OperatorShop\Domain\Offer\Pricing\Importer\OfferPricingsImportTracking;
 
 /**
@@ -13,6 +15,7 @@ use Mirakl\MMP\OperatorShop\Domain\Offer\Pricing\Importer\OfferPricingsImportTra
  * @method int   getShop()
  * @method $this setShop(int $shop)
  */
+#[ApiOperation('PRI01')]
 abstract class AbstractOfferPricingsImportRequest extends AbstractFileRequest
 {
     /**
@@ -38,7 +41,7 @@ abstract class AbstractOfferPricingsImportRequest extends AbstractFileRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OfferPricingsImportTracking::decorator();
     }

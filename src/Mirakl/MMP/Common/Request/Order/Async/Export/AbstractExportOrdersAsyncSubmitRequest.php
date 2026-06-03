@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Async\Export;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Order\Async\Export\ExportOrdersAsyncSubmitResponse;
 
 /**
@@ -36,6 +38,7 @@ use Mirakl\MMP\Common\Domain\Order\Async\Export\ExportOrdersAsyncSubmitResponse;
  * @method \DateTime getStartUpdateDate()
  * @method $this     setStartUpdateDate(\DateTime $startUpdateDate)
  */
+#[ApiOperation('OR13')]
 abstract class AbstractExportOrdersAsyncSubmitRequest extends AbstractRequest
 {
     /**
@@ -68,7 +71,7 @@ abstract class AbstractExportOrdersAsyncSubmitRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ExportOrdersAsyncSubmitResponse::decorator();
     }

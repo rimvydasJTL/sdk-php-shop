@@ -7,6 +7,7 @@ namespace Mirakl\MMP\Common\Request\Document;
 use Mirakl\Core\Domain\Collection\DocumentCollection;
 use Mirakl\Core\Domain\Document;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Document\DocumentsUploadResult;
 
 /**
@@ -87,7 +88,7 @@ abstract class AbstractDocumentsUploadRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return DocumentsUploadResult::decorator();
     }

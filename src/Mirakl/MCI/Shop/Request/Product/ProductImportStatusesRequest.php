@@ -4,24 +4,13 @@ declare(strict_types=1);
 
 namespace Mirakl\MCI\Shop\Request\Product;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MCI\Common\Request\Product\AbstractProductImportStatusesRequest;
 
 /**
  * (P51) Get product import statuses
- *
- * Example:
- *
- * <code>
- * use Mirakl\MCI\Shop\Client\ShopApiClient;
- * use Mirakl\MCI\Shop\Request\Product\ProductImportStatusesRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new ProductImportStatusesRequest();
- *
- * $result = $api->getProductImportStatuses($request);
- * // $result => @see \Mirakl\MCI\Common\Domain\Collection\Product\ProductImportResultCollection
- * </code>
  */
+#[ApiOperation('P51')]
 class ProductImportStatusesRequest extends AbstractProductImportStatusesRequest
 {
 }

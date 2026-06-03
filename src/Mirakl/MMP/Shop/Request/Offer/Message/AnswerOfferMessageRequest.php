@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Shop\Request\Offer\Message;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Message\MessageCreated;
 use Mirakl\MMP\Shop\Domain\Offer\Message\OfferMessageAnswer;
 
@@ -21,22 +23,8 @@ use Mirakl\MMP\Shop\Domain\Offer\Message\OfferMessageAnswer;
  * @method string             getOfferId()
  * @method $this              setOfferId(string $id)
  * @method $this              setShopId(string $shopId)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\Message\AnswerOfferMessageRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new AnswerOfferMessageRequest('IMPORT_ID', 'MESSAGE_ID', [
- *     'body' => "It is purple red. It's great!\n\n Regards.",
- *     'visible' => true,
- * ]);
- * $result = $api->answerOfferMessage($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Message\MessageCreated
- * </code>
  */
+#[ApiOperation('OF43')]
 class AnswerOfferMessageRequest extends AbstractRequest
 {
     /**
@@ -86,7 +74,7 @@ class AnswerOfferMessageRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return MessageCreated::decorator();
     }

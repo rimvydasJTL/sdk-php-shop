@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shipment;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\ShipmentIdentifierCollection;
 use Mirakl\MMP\Common\Domain\Shipment\Workflow\ShipmentWorkflowResponse;
 
@@ -44,7 +45,7 @@ abstract class AbstractShipmentsWorkflowRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ShipmentWorkflowResponse::decorator();
     }

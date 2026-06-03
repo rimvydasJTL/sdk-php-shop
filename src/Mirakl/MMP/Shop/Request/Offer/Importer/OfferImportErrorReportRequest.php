@@ -4,23 +4,13 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Offer\Importer;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\OperatorShop\Request\Offer\Importer\AbstractOfferImportErrorReportRequest;
 
 /**
  * (OF03) Get error report file for an offer import
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\Importer\OfferImportErrorReportRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new OfferImportErrorReportRequest('IMPORT_ID');
- * $result = $api->getOffersImportErrorReport($request);
- * // $result => @see \Mirakl\Core\Domain\FileWrapper
- * </code>
  */
+#[ApiOperation('OF03')]
 class OfferImportErrorReportRequest extends AbstractOfferImportErrorReportRequest
 {
 }

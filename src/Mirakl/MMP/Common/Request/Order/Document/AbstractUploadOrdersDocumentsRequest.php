@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Document;
 
 use Mirakl\Core\Domain\Collection\DocumentCollection;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Document\AbstractDocumentsUploadRequest;
 
 /**
@@ -18,6 +19,7 @@ use Mirakl\MMP\Common\Request\Document\AbstractDocumentsUploadRequest;
  * @method $this  setOrderId(string $orderId)
  * @method bool   hasDocuments()
  */
+#[ApiOperation('OR74')]
 abstract class AbstractUploadOrdersDocumentsRequest extends AbstractDocumentsUploadRequest
 {
     /**

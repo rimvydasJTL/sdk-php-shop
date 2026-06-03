@@ -49,6 +49,7 @@ use Mirakl\MMP\OperatorShop\Domain\Offer\Pricing\Importer\OfferPricingsImportTra
 use Mirakl\MMP\OperatorShop\Domain\Order\Refund\RefundsCreated;
 use Mirakl\MMP\OperatorShop\Request\Message\GetThreadDetailsRequest;
 use Mirakl\MMP\OperatorShop\Request\Message\GetThreadsRequest;
+use Mirakl\MMP\Shop\Domain\Account\AccountStatisticsResponse;
 use Mirakl\MMP\Shop\Domain\Collection\AdditionalFieldCollection;
 use Mirakl\MMP\Shop\Domain\Collection\Currency\CurrencyCollection;
 use Mirakl\MMP\Shop\Domain\Collection\Offer\ExportOfferCollection;
@@ -70,6 +71,7 @@ use Mirakl\MMP\Shop\Domain\Returns\ReturnAcceptOrRefuseResponse;
 use Mirakl\MMP\Shop\Domain\Returns\UpdateReturnsResponse;
 use Mirakl\MMP\Shop\Domain\Shop\ShopAccount;
 use Mirakl\MMP\Shop\Domain\Shop\UpdatedShopAndError;
+use Mirakl\MMP\Shop\Request\Account\GetAccountStatisticsRequest;
 use Mirakl\MMP\Shop\Request\AdditionalField\GetAdditionalFieldRequest;
 use Mirakl\MMP\Shop\Request\Channel\GetChannelsRequest;
 use Mirakl\MMP\Shop\Request\Currency\GetCurrenciesRequest;
@@ -158,13 +160,13 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method void                                  cancelOrder(CancelOrderRequest $request)
  * @method OffersExportAsyncTrackingResult       createOffersExportAsync(OffersExportAsyncRequest $request)
  * @method MessageCreated                        createOrderMessage(CreateOrderMessageRequest $request)
- * @method CreatedShipments                      createShipments(CreateShipmentsRequest $request)
  * @method ThreadCreated                         createOrderThread(CreateOrderThreadRequest $request)
+ * @method CreatedShipments                      createShipments(CreateShipmentsRequest $request)
  * @method void                                  deleteOrderDocument(DeleteOrderDocumentRequest $request)
  * @method DeletedShipments                      deleteShipments(DeleteShipmentsRequest $request)
  * @method void                                  deleteShopDocument(DeleteShopDocumentRequest $request)
- * @method FileWrapper                           downloadInvoice(DownloadInvoiceRequest $request)
  * @method FileWrapper                           downloadAccountingDocuments(DownloadAccountingDocumentsRequest $request)
+ * @method FileWrapper                           downloadInvoice(DownloadInvoiceRequest $request)
  * @method FileWrapper                           downloadOrdersDocuments(DownloadOrdersDocumentsRequest $request)
  * @method FileWrapper                           downloadShopDocuments(DownloadShopDocumentsRequest $request)
  * @method FileWrapper                           downloadThreadMessageAttachment(DownloadThreadMessageAttachmentRequest $request)
@@ -173,6 +175,7 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method ExportOrdersAsyncSubmitResponse       exportOrdersAsync(ExportOrdersAsyncSubmitRequest $request)
  * @method SeekableCollection                    getAccountingDocumentLinesRequests(GetAccountingDocumentLinesRequest $request)
  * @method SeekableCollection                    getAccountingDocumentsRequests(GetAccountingDocumentsRequest $request)
+ * @method AccountStatisticsResponse             getAccountStatistics(GetAccountStatisticsRequest $request)
  * @method AdditionalFieldCollection             getAdditionalFields(GetAdditionalFieldRequest $request)
  * @method ChannelCollection                     getChannels(GetChannelsRequest $request)
  * @method CurrencyCollection                    getCurrencies(GetCurrenciesRequest $request)
@@ -181,15 +184,15 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method SeekableCollection                    getItemsToShip(GetItemsToShipRequest $request)
  * @method ShopOffer                             getOffer(GetOfferRequest $request)
  * @method OfferMessageCollection                getOfferMessages(GetOfferMessagesRequest $request)
+ * @method FileWrapper                           getOfferPricingsImportErrorReport(OfferPricingsImportErrorReportRequest $request)
+ * @method SeekableCollection                    getOfferPricingsImportReports(OfferPricingsImportReportsRequest $request)
  * @method ShopOfferCollection                   getOffers(GetOffersRequest $request)
  * @method FileWrapper                           getOffersImportErrorReport(OfferImportErrorReportRequest $request)
  * @method OfferImportResult                     getOffersImportResult(OfferImportReportRequest $request)
  * @method SeekableCollection                    getOffersImports(OffersImportsRequest $request)
  * @method ProductWithOffersCollection           getOffersOnProducts(GetOffersOnProductsRequest $request)
- * @method FileWrapper                           getOfferPricingsImportErrorReport(OfferPricingsImportErrorReportRequest $request)
- * @method SeekableCollection                    getOfferPricingsImportReports(OfferPricingsImportReportsRequest $request)
- * @method CommonOfferStateCollection            getOfferStates(GetOfferStatesRequest $request) @deprecated Use getOfferStateList instead
  * @method OfferStateCollection                  getOfferStateList(GetOfferStateListRequest $request)
+ * @method CommonOfferStateCollection            getOfferStates(GetOfferStatesRequest $request) @deprecated Use getOfferStateList instead
  * @method OrderDocumentCollection               getOrderDocuments(GetOrderDocumentsRequest $request)
  * @method Evaluation                            getOrderEvaluation(GetOrderEvaluationRequest $request)
  * @method OrderMessageCollection                getOrderMessages(GetOrderMessagesRequest $request)
@@ -201,15 +204,15 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method ReasonCollection                      getReasons(GetReasonsRequest $request)
  * @method SeekableCollection                    getReturns(GetReturnsRequest $request)
  * @method SeekableCollection                    getShipments(GetShipmentsRequest $request)
+ * @method ShippingTypeWithDescriptionCollection getShippingTypes(GetShippingTypesRequest $request)
+ * @method ShippingZoneDetailCollection          getShippingZones(GetShippingZonesRequest $request)
+ * @method ShopDocumentCollection                getShopDocuments(GetShopDocumentsRequest $request)
  * @method ThreadDetails                         getThreadDetails(GetThreadDetailsRequest $request)
  * @method SeekableCollection                    getThreads(GetThreadsRequest $request)
  * @method SeekableCollection                    getTransactionLine(TransactionLineRequest $request)
  * @method ReasonCollection                      getTypeReasons(GetTypeReasonsRequest $request)
- * @method ShippingTypeWithDescriptionCollection getShippingTypes(GetShippingTypesRequest $request)
- * @method ShippingZoneDetailCollection          getShippingZones(GetShippingZonesRequest $request)
- * @method ShopDocumentCollection                getShopDocuments(GetShopDocumentsRequest $request)
- * @method OfferProductImportTracking            importOffers(OfferImportRequest $request)
  * @method OfferPricingsImportTracking           importOfferPricings(OfferPricingsImportRequest $request)
+ * @method OfferProductImportTracking            importOffers(OfferImportRequest $request)
  * @method void                                  markIncidentAsResolved(ResolveIncidentRequest $request)
  * @method ExportOrdersAsyncStatusResponse       pollExportOrdersAsyncStatus(ExportOrdersAsyncStatusRequest $request)
  * @method ShipmentWorkflowResponse              readyForPickUpShipments(ReadyForPickUpShipmentRequest $request)
@@ -220,7 +223,6 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method ShopOrderCollection                   retrieveExportOrdersAsyncFile(ExportOrdersAsyncDownloadFileRequest $request)
  * @method FileWrapper                           retrieveExportOrdersAsyncFileJson(ExportOrdersAsyncDownloadFileJsonRequest $request)
  * @method void                                  shipOrder(ShipOrderRequest $request)
- * @method OrderLinesShippingFromUpdateResponse  updateShippingFrom(UpdateOrderLinesShippingFromRequest $request)
  * @method ShipmentWorkflowResponse              shipShipments(ShipShipmentsRequest $request)
  * @method UpdatedShopAndError                   updateAccount(UpdateAccountRequest $request)
  * @method OfferImportTracking                   updateOffers(UpdateOffersRequest $request)
@@ -229,6 +231,7 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method void                                  updateOrderTrackingInfo(UpdateOrderTrackingInfoRequest $request)
  * @method UpdateReturnsResponse                 updateReturns(UpdateReturnsRequest $request)
  * @method UpdatedShipmentTrackings              updateShipmentTrackings(UpdateShipmentTrackingsRequest $request)
+ * @method OrderLinesShippingFromUpdateResponse  updateShippingFrom(UpdateOrderLinesShippingFromRequest $request)
  * @method UploadedAccountingDocumentsResponse   uploadAccountingDocuments(UploadAccountingDocumentsRequest $request)
  * @method OrderDocumentsUploadResult            uploadOrderDocuments(UploadOrdersDocumentsRequest $request)
  * @method DocumentsUploadResult                 uploadShopDocuments(UploadShopDocumentsRequest $request)

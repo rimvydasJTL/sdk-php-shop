@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Returns;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\OperatorShop\Domain\Collection\Returns\UpdateReturnCollection;
 
 /**
@@ -13,6 +14,7 @@ use Mirakl\MMP\OperatorShop\Domain\Collection\Returns\UpdateReturnCollection;
  * @method UpdateReturnCollection getUpdateReturns()
  * @method $this                  setUpdateReturns(UpdateReturnCollection|array $updateReturns)
  */
+#[ApiOperation('RT04')]
 abstract class AbstractUpdateReturnsRequest extends AbstractRequest
 {
     /**

@@ -36,7 +36,7 @@ trait DataObjectTrait
         }
 
         // Handle boolean check on keys
-        if (substr($method, 0, 2) === 'is') {
+        if (str_starts_with($method, 'is')) {
             return (bool) $this->getData(\Mirakl\underscorize(substr($method, 2)));
         }
 
@@ -174,7 +174,7 @@ trait DataObjectTrait
                 $value = sprintf('%.5F', $value);
             } elseif ($value instanceof \DateTime) {
                 $value = \Mirakl\date_format($value);
-            } elseif (is_object($value) && $value instanceof ArrayableInterface) {
+            } elseif ($value instanceof ArrayableInterface) {
                 if ($value->isEmpty()) {
                     $value = $value->getEmptyValue();
                 } else {

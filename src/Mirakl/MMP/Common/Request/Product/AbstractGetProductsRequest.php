@@ -6,6 +6,7 @@ namespace Mirakl\MMP\Common\Request\Product;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\ProductReferencesTrait;
 use Mirakl\MMP\Common\Domain\Product\Offer\ProductReference;
@@ -16,6 +17,7 @@ use Mirakl\MMP\Common\Domain\Product\Offer\ProductReference;
  * Sort by product sku and then by product identifier
  * Note: this resource return 100 products maximum
  */
+#[ApiOperation('P31')]
 abstract class AbstractGetProductsRequest extends AbstractRequest
 {
     use PageableTrait;

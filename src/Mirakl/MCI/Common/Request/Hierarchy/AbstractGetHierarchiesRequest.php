@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MCI\Common\Request\Hierarchy;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MCI\Common\Domain\Collection\HierarchyCollection;
 
 /**
@@ -34,7 +35,7 @@ abstract class AbstractGetHierarchiesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return HierarchyCollection::decorator('hierarchies');
     }

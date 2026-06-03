@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Payment\Invoice;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\Decorator\PdfTrait as PdfResponseDecorator;
 
 /**
@@ -13,6 +14,7 @@ use Mirakl\Core\Response\Decorator\PdfTrait as PdfResponseDecorator;
  * @method string getInvoiceId()
  * @method $this  setInvoiceId(string $invoiceId)
  */
+#[ApiOperation('IV02')]
 abstract class AbstractDownloadInvoiceRequest extends AbstractRequest
 {
     use PdfResponseDecorator;

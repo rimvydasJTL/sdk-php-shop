@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Common\Request\Order\Message;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Message\OrderMessageCollection;
 use Mirakl\MMP\Common\Request\Message\AbstractGetMessagesRequest;
 
@@ -14,7 +16,9 @@ use Mirakl\MMP\Common\Request\Message\AbstractGetMessagesRequest;
  *
  * @method string getOrderId()
  * @method $this  setOrderId(string $orderId)
+ * @deprecated
  */
+#[ApiOperation('M01')]
 abstract class AbstractGetOrderMessagesRequest extends AbstractGetMessagesRequest
 {
     /**
@@ -30,7 +34,7 @@ abstract class AbstractGetOrderMessagesRequest extends AbstractGetMessagesReques
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OrderMessageCollection::decorator('messages');
     }

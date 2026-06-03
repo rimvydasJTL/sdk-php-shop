@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Returns;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Domain\Collection\Returns\Workflow\AcceptOrRefuseReturnCollection;
 
 /**
@@ -13,6 +14,7 @@ use Mirakl\MMP\Common\Domain\Collection\Returns\Workflow\AcceptOrRefuseReturnCol
  * @method AcceptOrRefuseReturnCollection getReturns()
  * @method $this                          setReturns(AcceptOrRefuseReturnCollection|array $returns)
  */
+#[ApiOperation('RT21')]
 abstract class AbstractAcceptOrRefuseReturnsRequest extends AbstractRequest
 {
     /**

@@ -4,23 +4,13 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\OperatorShop\Request\Message;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Message\AbstractGetThreadDetailsRequest;
 
 /**
  * (M10) Retrieve a thread
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\OperatorShop\Request\Message\GetThreadDetailsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new GetThreadDetailsRequest('THREAD_ID');
- * $result = $api->getThreadDetails($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Message\Thread\ThreadDetails
- * </code>
  */
+#[ApiOperation('M10')]
 class GetThreadDetailsRequest extends AbstractGetThreadDetailsRequest
 {
 }

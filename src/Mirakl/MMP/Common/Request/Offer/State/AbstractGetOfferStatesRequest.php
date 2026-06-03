@@ -6,6 +6,8 @@ namespace Mirakl\MMP\Common\Request\Offer\State;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Offer\State\OfferStateCollection;
 
 /**
@@ -18,6 +20,7 @@ use Mirakl\MMP\Common\Domain\Collection\Offer\State\OfferStateCollection;
  * @see \Mirakl\MMP\Operator\Request\Offer\State\GetOfferStateListRequest
  * @see \Mirakl\MMP\Shop\Request\Offer\State\GetOfferStateListRequest
  */
+#[ApiOperation('OF61')]
 abstract class AbstractGetOfferStatesRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -30,7 +33,7 @@ abstract class AbstractGetOfferStatesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OfferStateCollection::decorator('offer_states');
     }

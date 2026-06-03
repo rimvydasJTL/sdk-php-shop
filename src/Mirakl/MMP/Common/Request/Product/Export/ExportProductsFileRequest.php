@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Product\Export;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\Decorator\CsvTrait as CsvResponseDecorator;
 
 /**
@@ -15,6 +16,7 @@ use Mirakl\Core\Response\Decorator\CsvTrait as CsvResponseDecorator;
  * product-url;media-url;authorized-shop-ids;variant-group-code;logistic-class
  * @see \Mirakl\MMP\Common\Request\Product\Export\ExportProductsRequest
 */
+#[ApiOperation('P13')]
 class ExportProductsFileRequest extends AbstractRequest
 {
     use CsvResponseDecorator;

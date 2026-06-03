@@ -4,28 +4,13 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Offer;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\OperatorShop\Request\Offer\AbstractUpdateOffersRequest;
 
 /**
  * (OF24) Update offers
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\UpdateOffersRequest;
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new UpdateOffersRequest();
- * $request->setOffers([
- *     [
- *         'shop_sku' => 'AAPL-CHASAW7852',
- *         'description' => 'never used',
- *     ]
- * ]);
- * $result = $api->updateOffers($request);
- * // $result => @see \Mirakl\MMP\OperatorShop\Domain\Offer\Importer\OfferImportTracking
- * </code>
  */
+#[ApiOperation('OF24')]
 class UpdateOffersRequest extends AbstractUpdateOffersRequest
 {
 }

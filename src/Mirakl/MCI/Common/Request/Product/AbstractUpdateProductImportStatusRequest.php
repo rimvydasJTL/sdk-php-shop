@@ -6,6 +6,7 @@ namespace Mirakl\MCI\Common\Request\Product;
 
 use Mirakl\Core\Domain\FileWrapper;
 use Mirakl\Core\Request\AbstractImportRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MCI\Common\Domain\Product\IntegrationDetails;
 use Mirakl\MCI\Common\Domain\Product\ProductImportStatus;
 
@@ -23,6 +24,7 @@ use Mirakl\MCI\Common\Domain\Product\ProductImportStatus;
  * @method $this              setStatus(string $status)
  *
  */
+#[ApiOperation('P43')]
 abstract class AbstractUpdateProductImportStatusRequest extends AbstractImportRequest
 {
     /**

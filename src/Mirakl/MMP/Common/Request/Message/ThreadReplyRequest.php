@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Common\Request\Message;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Message\Thread\ThreadReplyCreated;
 use Mirakl\MMP\Common\Domain\Message\Thread\ThreadReplyMessageInput;
 use Mirakl\MMP\Common\Request\Document\AbstractFilesUploadRequest;
@@ -15,44 +17,8 @@ use Mirakl\MMP\Common\Request\Document\AbstractFilesUploadRequest;
  * @method $this                   setMessageInput(ThreadReplyMessageInput|array $messageInput)
  * @method string                  getThreadId()
  * @method $this                   setThreadId(string $threadId)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Front\Client\FrontApiClient;
- * use Mirakl\Core\Domain\FileWrapper;
- * use Mirakl\MMP\Common\Domain\Collection\Message\Thread\ThreadRecipientCollection;
- * use Mirakl\MMP\Common\Domain\Message\Thread\ThreadRecipient;
- * use Mirakl\MMP\Common\Domain\Message\Thread\ThreadReplyMessageInput;
- * use Mirakl\MMP\Common\Request\Message\ThreadReplyRequest;
- *
- * $api = new FrontApiClient('API_URL', 'API_KEY');
- *
- * $recipient1 = new ThreadRecipient();
- * $recipient1->setType('OPERATOR');
- * $recipient2 = new ThreadRecipient();
- * $recipient2->setId('116');
- * $recipient2->setType('SHOP');
- *
- * $recipients = new ThreadRecipientCollection();
- * $recipients->add($recipient1);
- * $recipients->add($recipient2);
- *
- * $input = new ThreadReplyMessageInput();
- * $input->setBody('this is the body of my reply');
- * $input->setTo($recipients);
- *
- * $request = new ThreadReplyRequest('THREAD_ID', $input);
- *
- * // Add a file
- * $file = new FileWrapper(new \SplFileObject('foobar.txt'));
- * $file->setFileName('test1.txt'); // Optional, only needed if file name different than 'foobar.txt'
- * $request->addFile($file);
- *
- * $result = $api->replyToThread($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Message\Thread\ThreadReplyCreated
- * </code>
  */
+#[ApiOperation('M12')]
 class ThreadReplyRequest extends AbstractFilesUploadRequest
 {
     /**
@@ -89,7 +55,7 @@ class ThreadReplyRequest extends AbstractFilesUploadRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ThreadReplyCreated::decorator();
     }

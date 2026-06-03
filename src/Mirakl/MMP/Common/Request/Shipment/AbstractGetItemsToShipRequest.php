@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shipment;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 
@@ -20,6 +21,7 @@ use Mirakl\Core\Request\SortableTrait;
  * @method \DateTime getShippingDateTo()
  * @method $this     setShippingDateTo(\DateTime $shippingDateTo)
  */
+#[ApiOperation('ST12')]
 abstract class AbstractGetItemsToShipRequest extends AbstractRequest
 {
     use SeekableTrait;

@@ -5,22 +5,14 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Shop\Request\Offer;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Shop\Domain\Shop\ShopAccount;
 
 /**
  * (A01) Get shop information
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\GetAccountRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $result = $api->getAccount();
- * // $result => @see \Mirakl\MMP\Shop\Domain\Shop\ShopAccount
- * </code>
  */
+#[ApiOperation('A01')]
 class GetAccountRequest extends AbstractRequest
 {
     /**
@@ -31,7 +23,7 @@ class GetAccountRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ShopAccount::decorator();
     }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Shop\Request\Order\Adjust;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Adjust\CreatedAdjustmentCollection;
 use Mirakl\MMP\Shop\Domain\Collection\Order\Adjust\AdjustOrderLineCollection;
 
@@ -13,34 +15,14 @@ use Mirakl\MMP\Shop\Domain\Collection\Order\Adjust\AdjustOrderLineCollection;
  *
  * @method AdjustOrderLineCollection getOrderLines()
  * @method $this                     setOrderLines(array|AdjustOrderLineCollection $orderLines)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Order\Adjust\AdjustOrderLinesRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- *
- * $adjustOrderLine1 = new AdjustOrderLine();
- * $adjustOrderLine1->setOrderLineId('order-1-A-1');
- * $adjustOrderLine1->setActualMeasurement(20.34443);
- *
- * $adjustOrderLine2 = new AdjustOrderLine();
- * $adjustOrderLine2->setOrderLineId('order-2-A-1');
- * $adjustOrderLine2->setActualMeasurement(1);
- *
- * $request = new AdjustOrderLinesRequest([$adjustOrderLine1, $adjustOrderLine2]);
- * $result = $api->adjustOrderLines($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Collection\Adjust\CreatedAdjustmentCollection
- * </code>
  */
+#[ApiOperation('OR32')]
 class AdjustOrderLinesRequest extends AbstractRequest
 {
     /**
      * @var string
      */
-    protected $method = 'POST';
+    protected $method = 'PUT';
 
     /**
      * @var string
@@ -72,7 +54,7 @@ class AdjustOrderLinesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return CreatedAdjustmentCollection::decorator('order_lines_adjusted');
     }

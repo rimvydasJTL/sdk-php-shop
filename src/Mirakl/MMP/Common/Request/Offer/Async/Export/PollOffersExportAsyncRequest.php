@@ -5,43 +5,14 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Offer\Async\Export;
 
 use Mirakl\Core\Request\AbstractTrackingRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Offer\Async\Export\PollOffersExportAsyncStatusResult;
 
 /**
  * (OF53) Poll the status of an asynchronous offers export (OF52)
- *
- * <code>
- *
- * require 'vendor/autoload.php';
- *
- * use Mirakl\MMP\Common\Client\CommonApiClient as MiraklApiClient;
- * use Mirakl\MMP\Common\Request\Offer\Async\Export\PollOffersExportAsyncRequest;
- *
- * // Environment parameters
- * $url = 'https://your.env/api';
- * $apiKey = '49936c2a-6b1a-4e0a-97c8-97bbf77630c0';
- *
- * try {
- * // Building request
- * $trackingId = '9091133f-bffd-45f2-9495-0649a5c2485d';
- * $request = new PollOffersExportAsyncRequest($trackingId);
- *
- * // Instantiating the Mirakl API Client
- * $api = new MiraklApiClient($url, $apiKey);
- *
- * // Calling the API
- * $result = $api->pollOffersExportAsyncStatus($request);
- *
- * // \Mirakl\MMP\Common\Domain\Offer\Async\Export\PollOffersExportAsyncStatusResult
- * var_dump($result); // decorated response
- *
- * } catch (\Exception $e) {
- * // An exception is thrown if object requested is not found or if an error occurs
- * var_dump($e->getTraceAsString());
- * }
- *
- * </code>
  */
+#[ApiOperation('OF53')]
 class PollOffersExportAsyncRequest extends AbstractTrackingRequest
 {
     /**
@@ -52,7 +23,7 @@ class PollOffersExportAsyncRequest extends AbstractTrackingRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return PollOffersExportAsyncStatusResult::decorator();
     }

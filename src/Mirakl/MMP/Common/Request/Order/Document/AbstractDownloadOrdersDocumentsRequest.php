@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Document;
 
 use Mirakl\Core\Exception\RequestValidationException;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Document\AbstractDocumentsDownloadRequest;
 
 /**
@@ -44,6 +45,7 @@ use Mirakl\MMP\Common\Request\Document\AbstractDocumentsDownloadRequest;
  * @method string[] getDocumentIds()
  * @method string[] getOrderIds()
  */
+#[ApiOperation('OR73')]
 abstract class AbstractDownloadOrdersDocumentsRequest extends AbstractDocumentsDownloadRequest
 {
     /**

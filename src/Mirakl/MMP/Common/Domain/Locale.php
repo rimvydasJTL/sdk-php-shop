@@ -11,6 +11,9 @@ use Mirakl\Core\Domain\MiraklObject;
  * @method $this  setCode(string $code)
  * @method string getLabel()
  * @method $this  setLabel(string $label)
+ * @method bool   getPlatformDefault()
+ * @method bool   isPlatformDefault()
+ * @method $this  setPlatformDefault(bool $platformDefault)
  */
 class Locale extends MiraklObject
 {

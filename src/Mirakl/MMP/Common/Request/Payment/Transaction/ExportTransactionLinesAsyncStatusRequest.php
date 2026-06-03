@@ -5,42 +5,14 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Payment\Transaction;
 
 use Mirakl\Core\Request\AbstractTrackingRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Payment\Transaction\ExportTransactionLinesAsyncStatus;
 
 /**
  * (TL04) Poll the status of an asynchronous transaction log export (TL03)
- *
- * Example:
- *
- * <code>
- * require 'vendor/autoload.php';
- *
- * use Mirakl\MMP\Common\Client\CommonApiClient as MiraklApiClient;
- * use Mirakl\MMP\Common\Request\Payment\Transaction\ExportTransactionLinesAsyncStatusRequest;
- *
- * // Environment parameters
- * $url = 'https://your.env/api';
- * $apiKey = '49936c2a-6b1a-4e0a-97c8-97bbf77630c0';
- *
- * try {
- * // Building request
- * $trackingId = '1b164045-49d7-4b4d-9751-66465f8f5298';
- * $request = new ExportTransactionLinesAsyncStatusRequest($trackingId);
- *
- * // Instantiating the Mirakl API Client
- * $api = new MiraklApiClient($url, $apiKey);
- *
- * // Calling the API
- * $result = $api->pollExportTransactionLinesAsyncStatus($request);
- *
- * var_dump($result); // see Mirakl\MMP\Common\Domain\Payment\Transaction\ExportTransactionLinesAsyncStatus
- *
- * } catch (\Exception $e) {
- * // An exception is thrown if object requested is not found or if an error occurs
- * var_dump($e->getTraceAsString());
- * }
- * </code>
  */
+#[ApiOperation('TL04')]
 class ExportTransactionLinesAsyncStatusRequest extends AbstractTrackingRequest
 {
     /**
@@ -51,7 +23,7 @@ class ExportTransactionLinesAsyncStatusRequest extends AbstractTrackingRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ExportTransactionLinesAsyncStatus::decorator();
     }

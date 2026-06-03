@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Offer;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Request\Offer\AbstractGetOffersRequest;
 use Mirakl\MMP\Shop\Domain\Collection\Offer\ShopOfferCollection;
 
@@ -17,23 +19,8 @@ use Mirakl\MMP\Shop\Domain\Collection\Offer\ShopOfferCollection;
  * @method $this  setSku(string $sku)
  * @method string getProductId()
  * @method $this  setProductId(string $productId)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\GetOffersRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new GetOffersRequest('SHOP_ID');
- * $request->setSku('OFFER_SKU'); // Optional
- * $request->setProductId('PRODUCT_ID'); // Optional
- * $request->setOfferStateCodes(['OFFER_STATE']); // Optional
- * $request->setFavorite(true); // Optional
- * $result = $api->getOffers($request);
- * // $result => @see \Mirakl\MMP\Shop\Domain\Collection\Offer\ShopOfferCollection
- * </code>
  */
+#[ApiOperation('OF21')]
 class GetOffersRequest extends AbstractGetOffersRequest
 {
     /**
@@ -67,7 +54,7 @@ class GetOffersRequest extends AbstractGetOffersRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ShopOfferCollection::decorator('offers');
     }

@@ -7,14 +7,6 @@ namespace Mirakl\Core\Request;
 use Mirakl\MMP\Common\Domain\Product\Offer\ProductReference;
 
 /**
- * Example of product references:
- * <code>
- * $productReferences = [
- *     'EAN' => ['3515586944589', '3165140467278', '...'],
- *     '<type>' => ['<product_id>', '<product_id>', '...'],
- *     '...' => ['...', '...']
- * ];
- * </code>
  */
 trait ProductReferencesTrait
 {

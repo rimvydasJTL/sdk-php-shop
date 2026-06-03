@@ -6,6 +6,7 @@ namespace Mirakl\MMP\Common\Request\DocumentRequest;
 
 use Mirakl\Core\Exception\RequestValidationException;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\Decorator\FileTrait as FileResponseDecorator;
 
 /**
@@ -32,6 +33,7 @@ use Mirakl\Core\Response\Decorator\FileTrait as FileResponseDecorator;
  * @method string[] getEntityTypes()
  * @method $this    setEntityTypes(array $entityTypes)
  */
+#[ApiOperation('DR73')]
 abstract class AbstractDownloadAccountingDocumentsRequest extends AbstractRequest
 {
     use FileResponseDecorator;

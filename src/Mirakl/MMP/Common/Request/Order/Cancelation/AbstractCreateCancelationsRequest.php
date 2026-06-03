@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Cancelation;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 
 /**
  * (OR30) Demand cancelations on order lines
@@ -12,6 +13,7 @@ use Mirakl\Core\Request\AbstractRequest;
  * @method string getOrderTaxMode()
  * @method $this  setOrderTaxMode(string $orderTaxMode)
  */
+#[ApiOperation('OR30')]
 abstract class AbstractCreateCancelationsRequest extends AbstractRequest
 {
     /**

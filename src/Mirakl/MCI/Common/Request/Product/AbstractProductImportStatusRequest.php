@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MCI\Common\Request\Product;
 
 use Mirakl\Core\Request\AbstractImportRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MCI\Common\Domain\Product\ProductImportResult;
 
 abstract class AbstractProductImportStatusRequest extends AbstractImportRequest
@@ -17,7 +18,7 @@ abstract class AbstractProductImportStatusRequest extends AbstractImportRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ProductImportResult::decorator();
     }

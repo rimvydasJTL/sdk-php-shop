@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Common\Request\Order\Message;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Message\MessageCreated;
 use Mirakl\MMP\Common\Domain\Order\Message\CreateOrderMessage;
 use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
@@ -13,7 +15,9 @@ use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
  *
  * @method CreateOrderMessage getMessage()
  * @method $this              setMessage(array|CreateOrderMessage $message)
+ * @deprecated
  */
+#[ApiOperation('OR42')]
 abstract class AbstractCreateOrderMessageRequest extends AbstractOrderRequest
 {
     /**
@@ -51,7 +55,7 @@ abstract class AbstractCreateOrderMessageRequest extends AbstractOrderRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return MessageCreated::decorator();
     }

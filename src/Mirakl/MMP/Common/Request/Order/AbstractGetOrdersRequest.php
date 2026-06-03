@@ -7,6 +7,7 @@ namespace Mirakl\MMP\Common\Request\Order;
 use Mirakl\Core\Domain\DateRangeTrait;
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\SortableTrait;
 
@@ -43,6 +44,7 @@ use Mirakl\Core\Request\SortableTrait;
  * @method \DateTime getStartUpdateDate()
  * @method $this     setStartUpdateDate(\DateTime $startUpdateDate)
  */
+#[ApiOperation('OR11')]
 abstract class AbstractGetOrdersRequest extends AbstractRequest
 {
     use DateRangeTrait;

@@ -239,9 +239,9 @@ if (!function_exists('\Mirakl\get_version')) {
         static $version;
 
         if (!$version) {
-            $file = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'composer.json';
+            $file = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'composer.json';
             preg_match('#"version":\s+"(\d+\.\d+\.\d+-?.*)"#', file_get_contents($file), $matches);
-            $version = isset($matches[1]) ? $matches[1] : 'Unknown Version';
+            $version = $matches[1] ?? 'Unknown Version';
         }
 
         return $version;

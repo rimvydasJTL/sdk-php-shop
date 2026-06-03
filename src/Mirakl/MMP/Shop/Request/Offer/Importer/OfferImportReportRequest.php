@@ -4,23 +4,13 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Offer\Importer;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\OperatorShop\Request\Offer\Importer\AbstractOfferImportReportRequest;
 
 /**
  * (OF02) Get import information and stats
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\Importer\OfferImportReportRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new OfferImportReportRequest('IMPORT_ID');
- * $result = $api->getOffersImportResult($request);
- * // $result => @see \Mirakl\MMP\OperatorShop\Domain\Offer\Importer\OfferImportResult
- * </code>
  */
+#[ApiOperation('OF02')]
 class OfferImportReportRequest extends AbstractOfferImportReportRequest
 {
 }

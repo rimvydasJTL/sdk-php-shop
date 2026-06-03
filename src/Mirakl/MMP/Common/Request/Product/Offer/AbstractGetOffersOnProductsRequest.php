@@ -6,6 +6,7 @@ namespace Mirakl\MMP\Common\Request\Product\Offer;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\ProductReferencesTrait;
 use Mirakl\Core\Request\SortableTrait;
@@ -35,6 +36,7 @@ use Mirakl\Core\Request\SortableTrait;
  * @method string[] getShippingZones()
  * @method $this    setShippingZones(string[] $shippingZones)
  */
+#[ApiOperation('P11')]
 abstract class AbstractGetOffersOnProductsRequest extends AbstractRequest
 {
     use PageableTrait;

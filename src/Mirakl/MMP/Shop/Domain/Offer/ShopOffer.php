@@ -9,8 +9,14 @@ use Mirakl\MMP\Common\Domain\Offer\AbstractOffer;
 /**
  * @method string getInternalDescription()
  * @method $this  setInternalDescription(string $internalDescription)
+ * @method float  getMsrp()
+ * @method $this  setMsrp(float $msrp)
+ * @method array  getRetailPrices()
+ * @method $this  setRetailPrices(array $retailPrices)
  * @method string getSku()
  * @method $this  setSku(string $sku)
+ * @method array  getWarehouses()
+ * @method $this  setWarehouses(array $warehouses)
  */
 class ShopOffer extends AbstractOffer
 {

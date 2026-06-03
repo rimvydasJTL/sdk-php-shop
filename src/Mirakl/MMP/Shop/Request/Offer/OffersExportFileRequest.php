@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Offer;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Offer\AbstractOffersExportFileRequest;
 
 /**
@@ -20,23 +21,9 @@ use Mirakl\MMP\Common\Request\Offer\AbstractOffersExportFileRequest;
  * state-code;shop-id;shop-name;professional;premium;logistic-class;active;favorite-rank;channels;
  * deleted;origin-price;discount-start-date;discount-end-date;available-start-date;available-end-date;currency-iso-code
  * </p>
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Offer\OffersExportFileRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- *
- * $request = new OffersExportFileRequest();
- * $request->setIncludeInactiveOffers(true);
- *
- * $result = $api->exportOffersToFile($request);
- * // $result => @see \Mirakl\Core\Domain\FileWrapper;
- *
- * </code>
+ * @deprecated
  */
+#[ApiOperation('OF51')]
 class OffersExportFileRequest extends AbstractOffersExportFileRequest
 {
 }

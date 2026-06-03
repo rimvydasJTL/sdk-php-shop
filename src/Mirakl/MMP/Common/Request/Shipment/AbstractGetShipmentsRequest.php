@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shipment;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\ShipmentCollection;
 
 /**
@@ -24,6 +26,7 @@ use Mirakl\MMP\Common\Domain\Collection\Shipment\ShipmentCollection;
  * @method string[]  getShipmentStateCodes()
  * @method $this     setShipmentStateCodes(array $shipmentStateCodes)
  */
+#[ApiOperation('ST11')]
 abstract class AbstractGetShipmentsRequest extends AbstractRequest
 {
     use SeekableTrait;
@@ -85,7 +88,7 @@ abstract class AbstractGetShipmentsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(ShipmentCollection::class, 'data');
     }

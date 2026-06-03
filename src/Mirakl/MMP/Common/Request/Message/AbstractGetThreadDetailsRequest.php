@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Message;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Message\Thread\ThreadDetails;
 
 /**
@@ -13,6 +15,7 @@ use Mirakl\MMP\Common\Domain\Message\Thread\ThreadDetails;
  * @method string getThreadId()
  * @method $this  setThreadId(string $threadId)
  */
+#[ApiOperation('M10')]
 abstract class AbstractGetThreadDetailsRequest extends AbstractRequest
 {
     /**
@@ -40,7 +43,7 @@ abstract class AbstractGetThreadDetailsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ThreadDetails::decorator();
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Async\Export;
 
 use Mirakl\Core\Request\AbstractFileUrlRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\Decorator\JsonTrait as JsonResponseDecorator;
 
 /**
@@ -12,6 +13,7 @@ use Mirakl\Core\Response\Decorator\JsonTrait as JsonResponseDecorator;
  *
  * Retrieve orders files once asynchronous export is complete (OR14).
  */
+#[ApiOperation('OR15')]
 abstract class AbstractExportOrdersAsyncDownloadFileJsonRequest extends AbstractFileUrlRequest
 {
     use JsonResponseDecorator;

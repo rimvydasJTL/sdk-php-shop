@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shipment;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\CreateShipmentCollection;
 use Mirakl\MMP\Common\Domain\Shipment\CreatedShipments;
 
@@ -14,6 +16,7 @@ use Mirakl\MMP\Common\Domain\Shipment\CreatedShipments;
  * @method CreateShipmentCollection getShipments()
  * @method $this                    setShipments(array|CreateShipmentCollection $createShipments)
  */
+#[ApiOperation('ST01')]
 abstract class AbstractCreateShipmentsRequest extends AbstractRequest
 {
     /**
@@ -51,7 +54,7 @@ abstract class AbstractCreateShipmentsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return CreatedShipments::decorator();
     }

@@ -414,7 +414,7 @@ abstract class AbstractApiClient implements ApiClientInterface
         $stack->push(GuzzleHttp\Middleware::history($this->history));
 
         $logger = $this->getLogger();
-        if (!empty($logger)) {
+        if ($logger !== null) {
             $stack->push(GuzzleHttp\Middleware::log($logger, $this->getMessageFormatter()));
         }
 

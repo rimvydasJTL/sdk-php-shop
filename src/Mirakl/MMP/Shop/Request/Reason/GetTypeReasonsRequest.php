@@ -6,6 +6,8 @@ namespace Mirakl\MMP\Shop\Request\Reason;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Reason\ReasonType;
 use Mirakl\MMP\Shop\Domain\Collection\Reason\ReasonCollection;
 
@@ -18,21 +20,8 @@ use Mirakl\MMP\Shop\Domain\Collection\Reason\ReasonCollection;
  *
  * @method string getReasonType()
  * @method $this  setReasonType(string $reasonType)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Reason\GetTypeReasonsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- *
- * $request = new GetTypeReasonsRequest();
- *
- * $result = $api->getTypeReasons($request);
- * // $result => @see \Mirakl\MMP\Shop\Domain\Collection\Reason\ReasonCollection
- * </code>
  */
+#[ApiOperation('RE02')]
 class GetTypeReasonsRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -62,7 +51,7 @@ class GetTypeReasonsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ReasonCollection::decorator('reasons');
     }

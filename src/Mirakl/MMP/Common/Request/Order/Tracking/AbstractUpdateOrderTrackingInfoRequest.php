@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Common\Request\Order\Tracking;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Domain\Order\Tracking\OrderTrackingInfo;
 use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
 
@@ -13,6 +14,7 @@ use Mirakl\MMP\Common\Request\Order\AbstractOrderRequest;
  * @method OrderTrackingInfo getTrackingOrderInfo()
  * @method $this             setTrackingOrderInfo(array|OrderTrackingInfo $trackingOrderInfo)
  */
+#[ApiOperation('OR23')]
 abstract class AbstractUpdateOrderTrackingInfoRequest extends AbstractOrderRequest
 {
     /**

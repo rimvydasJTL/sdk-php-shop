@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Order\Cancelation;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Request\Order\Cancelation\AbstractCreateCancelationsRequest;
 use Mirakl\MMP\Shop\Domain\Collection\Order\CreateCancelationCollection;
 use Mirakl\MMP\Shop\Domain\Order\Cancelation\CancelationsCreated;
@@ -13,33 +15,8 @@ use Mirakl\MMP\Shop\Domain\Order\Cancelation\CancelationsCreated;
  *
  * @method CreateCancelationCollection getCancelations()
  * @method $this                       setCancelations(array|CreateCancelationCollection $cancelations)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Common\Domain\Order\Tax\OrderTaxAmount;
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Domain\Order\Cancelation\CreateCancelation;
- * use Mirakl\MMP\Shop\Request\Order\Cancelation\CreateCancelationsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- *
- * $createCancelation = new CreateCancelation();
- * $createCancelation->setAmount(10.00);
- * $createCancelation->setReasonCode('18');
- * $createCancelation->setOrderLineId('OR01-A-1');
- * $createCancelation->setQuantity(1);
- * $createCancelation->setShippingAmount(1.00);
- * $createCancelation->setCurrencyIsoCode('EUR');
- * $createCancelation->setShippingTaxes([new OrderTaxAmount(1.53, 'VAT')]);
- * $createCancelation->setTaxes([new OrderTaxAmount(0.98, 'GST')]);
- *
- * $request = new CreateCancelationsRequest([$createCancelation]);
- *
- * $result = $api->requestCancelOrderLines($request);
- * // $result => @see \Mirakl\MMP\Shop\Domain\Order\Cancelation\CancelationsCreated
- * </code>
  */
+#[ApiOperation('OR30')]
 class CreateCancelationsRequest extends AbstractCreateCancelationsRequest
 {
     /**
@@ -62,7 +39,7 @@ class CreateCancelationsRequest extends AbstractCreateCancelationsRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return CancelationsCreated::decorator();
     }

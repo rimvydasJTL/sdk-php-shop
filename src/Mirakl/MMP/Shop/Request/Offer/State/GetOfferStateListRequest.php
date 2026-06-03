@@ -6,23 +6,16 @@ namespace Mirakl\MMP\Shop\Request\Offer\State;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Shop\Domain\Collection\Offer\State\OfferStateCollection;
 
 /**
  * (OF61) Get the list of the offer states configured on the platform
  *
  * (sorted by sortIndex, defined in the BO)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $result = $api->getOfferStateList();
- * // $result => @see \Mirakl\MMP\Shop\Domain\Collection\Offer\State\OfferStateCollection
- * </code>
  */
+#[ApiOperation('OF61')]
 class GetOfferStateListRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -35,7 +28,7 @@ class GetOfferStateListRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OfferStateCollection::decorator('offer_states');
     }

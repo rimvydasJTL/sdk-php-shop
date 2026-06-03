@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Common\Request\Order\Message;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Message\Thread\ThreadCreated;
 use Mirakl\MMP\Common\Domain\Order\Message\CreateOrderThread;
 use Mirakl\MMP\Common\Request\Document\AbstractFilesUploadRequest;
@@ -15,37 +17,8 @@ use Mirakl\MMP\Common\Request\Document\AbstractFilesUploadRequest;
  * @method $this             setOrderId(string $orderId)
  * @method CreateOrderThread getThread()
  * @method $this             setThread(CreateOrderThread $thread)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Front\Client\FrontApiClient;
- * use Mirakl\MMP\Common\Domain\Message\Thread\ThreadTopic;
- * use Mirakl\MMP\Common\Domain\Order\Message\CreateOrderThread;
- * use Mirakl\MMP\Common\Request\Order\Message\CreateOrderThreadRequest;
- *
- * $api = new FrontApiClient('API_URL', 'API_KEY');
- *
- * $thread = new CreateOrderThread();
- * $thread->setBody('This is an example body');
- * $thread->setTo(['SHOP', 'OPERATOR']);
- *
- * $topic = new ThreadTopic();
- * $topic->setType('FREE_TEXT');
- * $topic->setValue('This is an example');
- * $thread->setTopic($topic);
- *
- * $request = new CreateOrderThreadRequest('ORDER_ID', $thread);
- *
- * // Add a file
- * $file = new FileWrapper(new \SplFileObject('foobar.txt'));
- * $file->setFileName('test1.txt'); // Optional, only needed if file name different than 'foobar.txt'
- * $request->addFile($file);
- *
- * $result = $api->createOrderThread($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Message\Thread\ThreadCreated
- * </code>
  */
+#[ApiOperation('OR43')]
 class CreateOrderThreadRequest extends AbstractFilesUploadRequest
 {
     /**
@@ -82,7 +55,7 @@ class CreateOrderThreadRequest extends AbstractFilesUploadRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ThreadCreated::decorator();
     }

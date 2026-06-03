@@ -6,6 +6,8 @@ namespace Mirakl\MMP\Common\Request\Document;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Document\DocumentsConfigurationCollection;
 
 /**
@@ -14,6 +16,7 @@ use Mirakl\MMP\Common\Domain\Collection\Document\DocumentsConfigurationCollectio
  * @method string[] getEntities()
  * @method $this    setEntities(string[] $entities)
  */
+#[ApiOperation('DO01')]
 abstract class AbstractGetDocumentsConfigurationRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -31,7 +34,7 @@ abstract class AbstractGetDocumentsConfigurationRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return DocumentsConfigurationCollection::decorator('documents');
     }

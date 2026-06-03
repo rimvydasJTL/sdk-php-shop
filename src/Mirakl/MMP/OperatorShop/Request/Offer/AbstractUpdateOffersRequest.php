@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Offer;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\OperatorShop\Domain\Collection\Offer\UpdateOfferCollection;
 use Mirakl\MMP\OperatorShop\Domain\Offer\Importer\OfferImportTracking;
 
@@ -14,6 +16,7 @@ use Mirakl\MMP\OperatorShop\Domain\Offer\Importer\OfferImportTracking;
  * @method UpdateOfferCollection getOffers()
  * @method $this                 setOffers(array|UpdateOfferCollection $offers)
  */
+#[ApiOperation('OF24')]
 abstract class AbstractUpdateOffersRequest extends AbstractRequest
 {
     /**
@@ -41,7 +44,7 @@ abstract class AbstractUpdateOffersRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OfferImportTracking::decorator();
     }

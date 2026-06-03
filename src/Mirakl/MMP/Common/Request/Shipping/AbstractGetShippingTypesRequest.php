@@ -6,11 +6,14 @@ namespace Mirakl\MMP\Common\Request\Shipping;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Shipping\ShippingTypeWithDescriptionCollection;
 
 /**
  * (SH12) List all active shipping methods
  */
+#[ApiOperation('SH12')]
 abstract class AbstractGetShippingTypesRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -23,7 +26,7 @@ abstract class AbstractGetShippingTypesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ShippingTypeWithDescriptionCollection::decorator('shipping_types');
     }

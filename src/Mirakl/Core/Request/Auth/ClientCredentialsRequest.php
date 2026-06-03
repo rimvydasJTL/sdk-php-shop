@@ -6,6 +6,7 @@ namespace Mirakl\Core\Request\Auth;
 
 use Mirakl\Core\Domain\Auth\ClientCredentials;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 
 /**
  * @method string getClientId()
@@ -14,29 +15,6 @@ use Mirakl\Core\Request\AbstractRequest;
  * @method $this  setClientSecret(string $clientSecret)
  * @method string getGrantType()
  * @method $this  setGrantType(string $grantType)
- *
- * Example:
- *
- * <code>
- * <?php
- * require 'vendor/autoload.php';
- *
- * use Mirakl\Core\Request\Auth\ClientCredentialsRequest;
- * use Mirakl\Core\Client\AuthApiClient;
- *
- * try {
- *     $client = new AuthApiClient($authUrl);
- *     $request = new ClientCredentialsRequest($clientId, $clientSecret);
- *     $credentials = $client->getCredentials($request);
- *     // @see \Mirakl\Core\Domain\Auth\ClientCredentials
- * } catch (\GuzzleHttp\Exception\RequestException $e) {
- *     // => $e->getMessage();
- *     // => (string) $e->getResponse()->getBody();
- * } catch (\Exception | \GuzzleHttp\Exception\GuzzleException $e) {
- *     // => $e->getMessage();
- * }
- *
- * </code>
  */
 class ClientCredentialsRequest extends AbstractRequest
 {
@@ -82,7 +60,7 @@ class ClientCredentialsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ClientCredentials::decorator();
     }

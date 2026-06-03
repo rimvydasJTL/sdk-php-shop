@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Shop\Request\Order\Incident;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Shop\Domain\Order\Incident\IncidentReason;
 
 /**
@@ -16,18 +17,8 @@ use Mirakl\MMP\Shop\Domain\Order\Incident\IncidentReason;
  * @method $this          setOrderId(string $orderId)
  * @method string         getOrderLineId()
  * @method $this          setOrderLineId(string $orderId)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Order\Incident\ResolveIncidentRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new ResolveIncidentRequest('ORDER_ID', 'LINE', 'REASON_CODE');
- * $api->markIncidentAsResolved($request);
- * </code>
  */
+#[ApiOperation('OR64')]
 class ResolveIncidentRequest extends AbstractRequest
 {
     /**

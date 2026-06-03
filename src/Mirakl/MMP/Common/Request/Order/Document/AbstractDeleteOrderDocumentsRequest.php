@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\Document;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 
 /**
  * (OR76) Delete order document
@@ -12,6 +13,7 @@ use Mirakl\Core\Request\AbstractRequest;
  * @method int   getDocumentId()
  * @method $this setDocumentId(int $documentId)
  */
+#[ApiOperation('OR76')]
 abstract class AbstractDeleteOrderDocumentsRequest extends AbstractRequest
 {
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Offer\State;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Offer\State\AbstractGetOfferStatesRequest;
 
 /**
@@ -11,19 +12,10 @@ use Mirakl\MMP\Common\Request\Offer\State\AbstractGetOfferStatesRequest;
  *
  * (sorted by sortIndex, defined in the BO)
  *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $result = $api->getOfferStates();
- * // $result => @see \Mirakl\MMP\Common\Domain\Collection\Offer\State\OfferStateCollection
- * </code>
- *
  * @deprecated Class deprecated since 1.6.0
  * @see \Mirakl\MMP\Shop\Request\Offer\State\GetOfferStateListRequest
  */
+#[ApiOperation('OF61')]
 class GetOfferStatesRequest extends AbstractGetOfferStatesRequest
 {
 }

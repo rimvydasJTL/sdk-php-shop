@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shipment;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\DeleteShipmentCollection;
 use Mirakl\MMP\Common\Domain\Shipment\DeletedShipments;
 
@@ -14,6 +16,7 @@ use Mirakl\MMP\Common\Domain\Shipment\DeletedShipments;
  * @method DeleteShipmentCollection getShipments()
  * @method $this                    setShipments(array|DeleteShipmentCollection $deleteShipments)
  */
+#[ApiOperation('ST06')]
 abstract class AbstractDeleteShipmentRequest extends AbstractRequest
 {
     /**
@@ -51,7 +54,7 @@ abstract class AbstractDeleteShipmentRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return DeletedShipments::decorator();
     }

@@ -6,6 +6,7 @@ namespace Mirakl\MMP\Common\Request\Promotion;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\SortableTrait;
 
@@ -33,6 +34,7 @@ use Mirakl\Core\Request\SortableTrait;
  * @method string[]  getTypes()
  * @method $this     setTypes(string[] $types)
  */
+#[ApiOperation('PR01')]
 abstract class AbstractGetPromotionsRequest extends AbstractRequest
 {
     use LocalizableTrait;

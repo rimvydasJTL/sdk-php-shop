@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Returns;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Returns\MiraklReturnCollection;
 
 /**
@@ -34,6 +36,7 @@ use Mirakl\MMP\Common\Domain\Collection\Returns\MiraklReturnCollection;
  * @method string[]  getCustomerIds()
  * @method $this     setCustomerIds(string[] $customerIds)
  */
+#[ApiOperation('RT11')]
 abstract class AbstractGetReturnsRequest extends AbstractRequest
 {
     use SeekableTrait;
@@ -75,7 +78,7 @@ abstract class AbstractGetReturnsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(MiraklReturnCollection::class, 'data');
     }

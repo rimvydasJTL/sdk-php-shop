@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Payment\Transaction;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Payment\Transaction\ExportTransactionLinesAsync;
 
 /**
@@ -36,6 +38,8 @@ use Mirakl\MMP\Common\Domain\Payment\Transaction\ExportTransactionLinesAsync;
  * @method $this     setPaymentState(string[] $paymentState)
  * @method string    getPaymentVoucherNumber()
  * @method $this     setPaymentVoucherNumber(string $paymentVoucherNumber)
+ * @method string[]  getPayOutPspCodes()
+ * @method $this     setPayOutPspCodes(string[] $payOutPspCodes)
  * @method string[]  getShopDomain()
  * @method $this     setShopDomain(string[] $shopDomain)
  * @method int       getShopId()
@@ -48,42 +52,8 @@ use Mirakl\MMP\Common\Domain\Payment\Transaction\ExportTransactionLinesAsync;
  * @method $this     setTransactionDateTo(\DateTime $transactionDateTo)
  * @method string[]  getTransactionType() List of transaction types: \Mirakl\MMP\Common\Domain\Payment\Transaction\TransactionType
  * @method $this     setTransactionType(string[] $transactionType)
- *
- * Example:
- *
- * <code>
- * require 'vendor/autoload.php';
- *
- * use Mirakl\MMP\Common\Client\CommonApiClient as MiraklApiClient;
- * use Mirakl\MMP\Common\Request\Payment\Transaction\ExportTransactionLinesAsyncRequest;
- *
- * // Environment parameters
- * $url = 'https://your.env/api';
- * $apiKey = '49936c2a-6b1a-4e0a-97c8-97bbf77630c0';
- *
- * try {
- * // Building request
- * $request = new ExportTransactionLinesAsyncRequest();
- *
- * // Instantiating the Mirakl API Client
- * $api = new MiraklApiClient($url, $apiKey);
- *
- * // Set export parameters
- * $request->setMegabytesPerChunk(10);
- * $request->setLastUpdatedFrom(new \DateTime('2023-01-01 00:00:00'));
- *
- * // Calling the API
- * $result = $api->exportTransactionLinesAsync($request);
- *
- * var_dump($result); // see \Mirakl\MMP\Common\Domain\Payment\Transaction\ExportTransactionLinesAsync
- * $trackingId = $result->getTrackingId();
- *
- * } catch (\Exception $e) {
- * // An exception is thrown if object requested is not found or if an error occurs
- * var_dump($e->getTraceAsString());
- * }
- * </code>
  */
+#[ApiOperation('TL03')]
 class ExportTransactionLinesAsyncRequest extends AbstractRequest
 {
     /**
@@ -111,6 +81,7 @@ class ExportTransactionLinesAsyncRequest extends AbstractRequest
         'order_line_id',
         'order_reference_for_customer',
         'order_reference_for_seller',
+        'pay_out_psp_codes',
         'payment_state',
         'payment_voucher_number',
         'shop_domain',
@@ -124,7 +95,7 @@ class ExportTransactionLinesAsyncRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ExportTransactionLinesAsync::decorator();
     }

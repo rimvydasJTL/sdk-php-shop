@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Shipment;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Shipment\UpdateShipmentTrackingCollection;
 use Mirakl\MMP\Common\Domain\Shipment\UpdatedShipmentTrackings;
 
@@ -17,6 +19,7 @@ use Mirakl\MMP\Common\Domain\Shipment\UpdatedShipmentTrackings;
  * @method UpdateShipmentTrackingCollection getShipments()
  * @method $this                            setShipments(array|UpdateShipmentTrackingCollection $updateShipmentTrackings)
  */
+#[ApiOperation('ST23')]
 abstract class AbstractUpdateShipmentTrackingsRequest extends AbstractRequest
 {
     /**
@@ -54,7 +57,7 @@ abstract class AbstractUpdateShipmentTrackingsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return UpdatedShipmentTrackings::decorator();
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\DocumentRequest;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\DocumentRequest\AbstractDownloadAccountingDocumentsRequest;
 
 /**
@@ -18,26 +19,8 @@ use Mirakl\MMP\Common\Request\DocumentRequest\AbstractDownloadAccountingDocument
  * |   |__order1-A/|      |__ INV203837.pdf
  * |      |__ INV203837.cxml
  * |   |__order1-B/|      |__ INV203839.pdf
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\DocumentRequest\DownloadAccountingDocumentsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- *
- * $request = new DownloadAccountingDocumentsRequest();
- * $request->setDocumentIds(['1624624030618']);
- * $request->setDocumentFormats(['PDF']);
- *
- * $result = $api->downloadAccountingDocuments($request);
- * // $result => @see \Mirakl\Core\Domain\FileWrapper
- *
- * // Download file:
- * $result->download();
- * </code>
  */
+#[ApiOperation('DR73')]
 class DownloadAccountingDocumentsRequest extends AbstractDownloadAccountingDocumentsRequest
 {
 }

@@ -4,32 +4,21 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\AdditionalField;
 
-use Mirakl\MMP\Shop\Domain\Collection\AdditionalFieldCollection;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Request\AdditionalField\AbstractGetAdditionalFieldRequest;
+use Mirakl\MMP\Shop\Domain\Collection\AdditionalFieldCollection;
 
 /**
  * (AF01) Get the list of any additional fields
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\AdditionalField\GetAdditionalFieldRequest;
- * use Mirakl\MMP\Common\Domain\AdditionalField\AdditionalFieldLinkedEntity;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new GetAdditionalFieldRequest();
- * $request->setEntities([AdditionalFieldLinkedEntity::OFFER, AdditionalFieldLinkedEntity::SHOP]); // Optional
- * $result = $api->getAdditionalFields($request);
- * // $result => @see \Mirakl\MMP\Shop\Domain\Collection\AdditionalFieldCollection
- * </code>
  */
+#[ApiOperation('AF01')]
 class GetAdditionalFieldRequest extends AbstractGetAdditionalFieldRequest
 {
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return AdditionalFieldCollection::decorator('additional_fields');
     }

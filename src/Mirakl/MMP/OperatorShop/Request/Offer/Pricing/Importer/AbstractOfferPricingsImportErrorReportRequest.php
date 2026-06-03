@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\OperatorShop\Request\Offer\Pricing\Importer;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\Decorator\CsvTrait as CsvResponseDecorator;
 
 /**
@@ -13,6 +14,7 @@ use Mirakl\Core\Response\Decorator\CsvTrait as CsvResponseDecorator;
  * @method string getImportId()
  * @method $this  setImportId(string $importId)
  */
+#[ApiOperation('PRI03')]
 abstract class AbstractOfferPricingsImportErrorReportRequest extends AbstractRequest
 {
     use CsvResponseDecorator;

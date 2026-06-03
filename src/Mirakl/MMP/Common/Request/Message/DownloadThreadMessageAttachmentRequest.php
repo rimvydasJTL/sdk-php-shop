@@ -7,6 +7,7 @@ namespace Mirakl\MMP\Common\Request\Message;
 use Mirakl\Core\Client\ApiClientInterface;
 use Mirakl\Core\Domain\FileWrapper;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\Decorator\FileTrait as FileResponseDecorator;
 
 /**
@@ -15,21 +16,8 @@ use Mirakl\Core\Response\Decorator\FileTrait as FileResponseDecorator;
  * @method string      getAttachmentId()
  * @method $this       setAttachmentId(string $attachmentId)
  * @method FileWrapper run(ApiClientInterface $api)
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Front\Client\FrontApiClient;
- * use Mirakl\MMP\Common\Request\Message\DownloadThreadMessageAttachmentRequest;
- *
- * $api = new FrontApiClient('API_URL', 'API_KEY');
- * $request = new DownloadThreadMessageAttachmentRequest('ATTACHMENT_ID');
- * $result = $api->downloadThreadMessageAttachment($request);
- * // $result => @see \Mirakl\Core\Domain\FileWrapper
- * // Download file:
- * $result->download();
- * </code>
  */
+#[ApiOperation('M13')]
 class DownloadThreadMessageAttachmentRequest extends AbstractRequest
 {
     use FileResponseDecorator;

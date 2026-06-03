@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Message;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\SeekableTrait;
 use Mirakl\Core\Request\SortableTrait;
 use Mirakl\Core\Response\Decorator\SeekableCollection;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Message\Thread\ThreadCollection;
 
 /**
@@ -24,6 +26,7 @@ use Mirakl\MMP\Common\Domain\Collection\Message\Thread\ThreadCollection;
  * @method array     getChannelCodes()
  * @method $this     setChannelCodes(array $channelCodes)
  */
+#[ApiOperation('M11')]
 abstract class AbstractGetThreadsRequest extends AbstractRequest
 {
     use SeekableTrait;
@@ -48,7 +51,7 @@ abstract class AbstractGetThreadsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new SeekableCollection(ThreadCollection::class, 'data');
     }

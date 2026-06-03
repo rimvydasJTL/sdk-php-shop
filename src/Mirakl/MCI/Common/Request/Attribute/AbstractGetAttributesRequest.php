@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MCI\Common\Request\Attribute;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MCI\Common\Domain\Collection\AttributeCollection;
 
 /**
@@ -34,7 +35,7 @@ abstract class AbstractGetAttributesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return AttributeCollection::decorator('attributes');
     }

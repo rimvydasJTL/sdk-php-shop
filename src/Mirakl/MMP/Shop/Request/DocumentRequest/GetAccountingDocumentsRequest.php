@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\DocumentRequest;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\OperatorShop\Request\DocumentRequest\AbstractGetAccountingDocumentsRequest;
 
 /**
@@ -11,30 +12,8 @@ use Mirakl\MMP\OperatorShop\Request\DocumentRequest\AbstractGetAccountingDocumen
  *
  * Sort by creation date (desc by default)
  * This API uses pagination by default and will return 50 documents requests
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\DocumentRequest\GetAccountingDocumentsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new GetAccountingDocumentsRequest();
- *
- * $result = $api->getAccountingDocumentsRequests($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Collection\SeekableCollection
- *
- * // Loop on collection with $result->getCollection()
- * $collection = $result->getCollection();
- * // $collection => @see \Mirakl\MMP\OperatorShop\Domain\Collection\DocumentRequest\AccountingDocumentRequestResponseCollection
- *
- * // Get next results with token from response:
- * $request = new GetAccountingDocumentsRequest();
- * $request->setPageToken($result->getNextPageToken());
- * $result = $api->getAccountingDocumentsRequests($request);
- * // $result => @see \Mirakl\MMP\Common\Domain\Collection\SeekableCollection
- * </code>
  */
+#[ApiOperation('DR11')]
 class GetAccountingDocumentsRequest extends AbstractGetAccountingDocumentsRequest
 {
 }

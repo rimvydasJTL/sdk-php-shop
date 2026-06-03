@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Returns;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Returns\ReturnIdentifierCollection;
 use Mirakl\MMP\Common\Domain\Returns\ReturnWorkflowResponse;
 
@@ -14,6 +16,7 @@ use Mirakl\MMP\Common\Domain\Returns\ReturnWorkflowResponse;
  * @method ReturnIdentifierCollection getReturns()
  * @method $this                      setReturns(ReturnIdentifierCollection|array $returns)
  */
+#[ApiOperation('RT25')]
 abstract class AbstractReceiveReturnsRequest extends AbstractRequest
 {
     /**
@@ -51,7 +54,7 @@ abstract class AbstractReceiveReturnsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ReturnWorkflowResponse::decorator();
     }

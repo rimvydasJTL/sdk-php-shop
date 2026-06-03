@@ -7,6 +7,8 @@ namespace Mirakl\MCM\Common\Request\Catalog\Product;
 use Mirakl\Core\Domain\Collection\MiraklCollection;
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 
 /**
  * (CM11) Downloads the source product data sheet status
@@ -22,6 +24,7 @@ use Mirakl\Core\Request\AbstractRequest;
  * @method \DateTime getUpdatedTo()
  * @method $this     setUpdatedTo(\DateTime $updatedTo)
  */
+#[ApiOperation('CM11')]
 abstract class AbstractGetSourceProductDataSheetStatusRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -59,7 +62,7 @@ abstract class AbstractGetSourceProductDataSheetStatusRequest extends AbstractRe
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return MiraklCollection::decorator();
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Offer;
 
 use Mirakl\Core\Domain\LocalizableTrait;
+use Mirakl\Core\Request\ApiOperation;
 
 /**
  * (OF22) Get information of an offer
@@ -14,6 +15,7 @@ use Mirakl\Core\Domain\LocalizableTrait;
  * @method string getPricingCustomerOrganizationId()
  * @method $this  setPricingCustomerOrganizationId(string $pricingCustomerOrganizationId)
  */
+#[ApiOperation('OF22')]
 abstract class AbstractGetOfferRequest extends AbstractOfferRequest
 {
     use LocalizableTrait;

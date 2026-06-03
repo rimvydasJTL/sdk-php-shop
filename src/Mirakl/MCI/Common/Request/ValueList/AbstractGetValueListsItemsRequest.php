@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MCI\Common\Request\ValueList;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MCI\Common\Domain\ValueLists;
 
 /**
@@ -13,6 +15,7 @@ use Mirakl\MCI\Common\Domain\ValueLists;
  * @method string getValueListCode()
  * @method $this  setValueListCode(string $valueListCode)
  */
+#[ApiOperation('VL11')]
 abstract class AbstractGetValueListsItemsRequest extends AbstractRequest
 {
     /**
@@ -28,7 +31,7 @@ abstract class AbstractGetValueListsItemsRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return ValueLists::decorator();
     }

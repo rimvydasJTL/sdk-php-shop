@@ -6,29 +6,14 @@ namespace Mirakl\MMP\Shop\Request\Currency;
 
 use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Shop\Domain\Collection\Currency\CurrencyCollection;
 
 /**
  * (CUR01) List currency codes and labels
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Currency\GetCurrenciesRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY');
- *
- * $request = new GetCurrenciesRequest();
- *
- * $request->setLocale('en_US');
- *
- * $currencies = $api->getCurrencies($request);
- *
- * // $currencies => @see \Mirakl\MMP\Shop\Domain\Collection\Currency\CurrencyCollection
- *
- * </code>
  */
+#[ApiOperation('CUR01')]
 class GetCurrenciesRequest extends AbstractRequest
 {
     use LocalizableTrait;
@@ -41,7 +26,7 @@ class GetCurrenciesRequest extends AbstractRequest
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return CurrencyCollection::decorator('currencies');
     }

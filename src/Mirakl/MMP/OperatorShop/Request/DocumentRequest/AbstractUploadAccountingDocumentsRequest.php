@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\OperatorShop\Request\DocumentRequest;
 
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Request\Document\AbstractFilesUploadRequest;
 use Mirakl\MMP\OperatorShop\Domain\Collection\DocumentRequest\UploadAccountingDocumentCollection;
 use Mirakl\MMP\OperatorShop\Domain\DocumentRequest\UploadedAccountingDocumentsResponse;
@@ -19,6 +21,7 @@ use Mirakl\MMP\OperatorShop\Domain\DocumentRequest\UploadedAccountingDocumentsRe
  * @method UploadAccountingDocumentCollection getDocumentsInput()
  * @method $this                              setDocumentsInput(UploadAccountingDocumentCollection|array $documentsInput)
  */
+#[ApiOperation('DR74')]
 abstract class AbstractUploadAccountingDocumentsRequest extends AbstractFilesUploadRequest
 {
     /**
@@ -58,7 +61,7 @@ abstract class AbstractUploadAccountingDocumentsRequest extends AbstractFilesUpl
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return UploadedAccountingDocumentsResponse::decorator();
     }

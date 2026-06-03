@@ -6,6 +6,7 @@ namespace Mirakl\MMP\Common\Request\Message;
 
 use Mirakl\Core\Domain\DateRangeTrait;
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Request\PageableTrait;
 use Mirakl\Core\Request\SortableTrait;
 
@@ -22,7 +23,9 @@ use Mirakl\Core\Request\SortableTrait;
  * @method $this  setReceived(bool $flag)
  * @method string getUserType()
  * @method $this  setUserType(string $userType)
+ * @deprecated
  */
+#[ApiOperation('M01')]
 abstract class AbstractGetMessagesRequest extends AbstractRequest
 {
     use DateRangeTrait;
@@ -37,7 +40,7 @@ abstract class AbstractGetMessagesRequest extends AbstractRequest
     /**
      * @var array
      */
-    public $queryParams = ['offer_id', 'shop_id' ,'customer_id', 'order_id', 'customer_id', 'received', 'user_type'];
+    public $queryParams = ['offer_id', 'shop_id', 'customer_id', 'order_id', 'received', 'user_type'];
 
     /**
      * @var array

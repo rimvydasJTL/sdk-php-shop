@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mirakl\MMP\Shop\Request\Shop\Document;
 
+use Mirakl\Core\Request\ApiOperation;
 use Mirakl\MMP\Common\Request\Shop\Document\AbstractDownloadShopsDocumentsRequest;
 
 /**
@@ -32,22 +33,8 @@ use Mirakl\MMP\Common\Request\Shop\Document\AbstractDownloadShopsDocumentsReques
  * |   |__ foo.txt
  * </pre>
  * </p>
- *
- * Example:
- *
- * <code>
- * use Mirakl\MMP\Shop\Client\ShopApiClient;
- * use Mirakl\MMP\Shop\Request\Shop\Document\DownloadShopDocumentsRequest;
- *
- * $api = new ShopApiClient('API_URL', 'API_KEY', 'SHOP_ID');
- * $request = new DownloadShopDocumentsRequest('SHOP_ID');
- * $request->setDocumentIds(['DOCUMENT_ID_1', 'DOCUMENT_ID_2']);
- * $result = $api->downloadShopDocuments($request);
- * // $result => @see \Mirakl\Core\Domain\FileWrapper
- * // Download file:
- * $result->download();
- * </code>
  */
+#[ApiOperation('S31')]
 class DownloadShopDocumentsRequest extends AbstractDownloadShopsDocumentsRequest
 {
     /**

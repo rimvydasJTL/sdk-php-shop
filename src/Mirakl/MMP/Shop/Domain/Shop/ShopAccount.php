@@ -26,6 +26,10 @@ use Mirakl\MMP\Shop\Domain\Shop\Billing\DefaultBillingInformation;
  * @method $this                                setPaymentDetails(ShopPaymentDetails|array $paymentDetails)
  * @method ShopShipping                         getShipping()
  * @method $this                                setShipping(ShopShipping|array $shipping)
+ * @method array                                getShippingTypes()
+ * @method $this                                setShippingTypes(array $shippingTypes)
+ * @method array                                getShippingZones()
+ * @method $this                                setShippingZones(array $shippingZones)
  * @method SpecificBillingInformationCollection getSpecificBillingInformations()
  * @method $this                                setSpecificBillingInformations(SpecificBillingInformationCollection|array $specificBillingInformations)
  */

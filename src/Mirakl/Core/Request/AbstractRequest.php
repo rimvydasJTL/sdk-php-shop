@@ -9,6 +9,7 @@ use Mirakl\Core\Domain\LocalizableTrait;
 use Mirakl\Core\Domain\MiraklObject;
 use Mirakl\Core\Exception\RequestValidationException;
 use Mirakl\Core\Response\Decorator;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -47,10 +48,8 @@ abstract class AbstractRequest extends MiraklObject implements RequestInterface
 
     /**
      * Request URI variables as an associative array
-     *
      * Pattern:
      * [ '{uri_variable}' => 'data_key' ]
-     *
      * Concrete example:
      * [ '{offer}' => 'offer_id' ]
      *
@@ -177,7 +176,7 @@ abstract class AbstractRequest extends MiraklObject implements RequestInterface
         $diff = array_diff($this->uriVars, array_keys($this->data));
         if (!empty($diff)) {
             throw new RequestValidationException(
-                sprintf('%s requires the following information: %s', __CLASS__, implode(', ', $this->uriVars))
+                sprintf('%s requires the following information: %s', __CLASS__, implode(', ', $this->uriVars)),
             );
         }
     }
@@ -358,9 +357,9 @@ abstract class AbstractRequest extends MiraklObject implements RequestInterface
     }
 
     /**
-     * @inheritdoc
+     * @return ResponseDecoratorInterface
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return new Decorator\Closure(function (ResponseInterface $response) {
             $contentType = $response->getHeaderLine('Content-Type');
@@ -419,7 +418,7 @@ abstract class AbstractRequest extends MiraklObject implements RequestInterface
      */
     public function setCleanup($flag)
     {
-        $this->cleanup = (bool) $flag;
+        $this->cleanup = (bool)$flag;
 
         return $this;
     }

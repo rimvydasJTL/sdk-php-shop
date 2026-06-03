@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Mirakl\MMP\Common\Request\Order\ShippingFrom;
 
 use Mirakl\Core\Request\AbstractRequest;
+use Mirakl\Core\Request\ApiOperation;
+use Mirakl\Core\Response\ResponseDecoratorInterface;
 use Mirakl\MMP\Common\Domain\Collection\Order\ShippingFrom\UpdateOrderLineShippingFromCollection;
 use Mirakl\MMP\Common\Domain\Order\ShippingFrom\OrderLinesShippingFromUpdateResponse;
 
@@ -14,6 +16,7 @@ use Mirakl\MMP\Common\Domain\Order\ShippingFrom\OrderLinesShippingFromUpdateResp
  * @method UpdateOrderLineShippingFromCollection getOrderLines()
  * @method $this                                 setOrderLines(array|UpdateOrderLineShippingFromCollection $orderLines)
  */
+#[ApiOperation('OR07')]
 abstract class AbstractUpdateOrderLinesShippingFromRequest extends AbstractRequest
 {
     /**
@@ -53,7 +56,7 @@ abstract class AbstractUpdateOrderLinesShippingFromRequest extends AbstractReque
     /**
      * @inheritdoc
      */
-    public function getResponseDecorator()
+    public function getResponseDecorator(): ResponseDecoratorInterface
     {
         return OrderLinesShippingFromUpdateResponse::decorator();
     }
