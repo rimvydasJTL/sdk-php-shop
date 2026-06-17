@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased
+### Features
+- Add Returns API: RT01 (create return request)
+
 ## v1.25.1 - 2026-05-27
 ### Fixes
 - Fix `TypeError` in `MiraklCollection` decorator when the API response does not contain the expected collection key
