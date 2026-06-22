@@ -31,7 +31,7 @@ use Mirakl\MMP\Common\Domain\Order\Async\Export\ExportOrdersAsyncStatusResponse;
 use Mirakl\MMP\Common\Domain\Order\Async\Export\ExportOrdersAsyncSubmitResponse;
 use Mirakl\MMP\Common\Domain\Order\Document\OrderDocumentsUploadResult;
 use Mirakl\MMP\Common\Domain\Order\ShippingFrom\OrderLinesShippingFromUpdateResponse;
-use Mirakl\MMP\Common\Domain\Returns\MiraklReturn;
+use Mirakl\MMP\Common\Domain\Returns\Returns;
 use Mirakl\MMP\Common\Domain\Returns\ReturnWorkflowResponse;
 use Mirakl\MMP\Common\Domain\Shipment\CreatedShipments;
 use Mirakl\MMP\Common\Domain\Shipment\DeletedShipments;
@@ -167,7 +167,7 @@ use Mirakl\MMP\Shop\Request\Shop\UpdateAccountRequest;
  * @method OffersExportAsyncTrackingResult       createOffersExportAsync(OffersExportAsyncRequest $request)
  * @method MessageCreated                        createOrderMessage(CreateOrderMessageRequest $request)
  * @method ThreadCreated                         createOrderThread(CreateOrderThreadRequest $request)
- * @method MiraklReturn                          createReturn(CreateReturnRequest $request)
+ * @method Returns                               createReturn(CreateReturnRequest $request)
  * @method CreatedShipments                      createShipments(CreateShipmentsRequest $request)
  * @method void                                  deleteOrderDocument(DeleteOrderDocumentRequest $request)
  * @method DeletedShipments                      deleteShipments(DeleteShipmentsRequest $request)
