@@ -6,7 +6,7 @@ namespace Mirakl\MMP\Shop\Request\Returns;
 
 use Mirakl\Core\Request\ApiOperation;
 use Mirakl\Core\Response\ResponseDecoratorInterface;
-use Mirakl\MMP\Common\Domain\Returns\MiraklReturn;
+use Mirakl\MMP\Common\Domain\Returns\Returns;
 use Mirakl\MMP\Common\Request\Returns\AbstractCreateReturnRequest;
 
 /**
@@ -20,6 +20,6 @@ class CreateReturnRequest extends AbstractCreateReturnRequest
      */
     public function getResponseDecorator(): ResponseDecoratorInterface
     {
-        return MiraklReturn::decorator();
+        return Returns::decorator();
     }
 }
